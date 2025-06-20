@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Demystified — Blog</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">HTTP Demystified</h1>
+    <p class="date">22 June, 2025</p>
+
+    <nav class="nav">
+      <a href="/index.html">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/walkthroughs.html">Walkthroughs</a>
+      <a href="/ctfs.html">CTFs</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+
+    <div class="post">
+      <p>
+        Every time you open a browser and type in a web address, you’re kicking off a quiet conversation between your computer and a web server. That conversation happens using a protocol called <strong>HTTP</strong> — HyperText Transfer Protocol. This blog will guide you through HTTP like a journey, from knocking on the web’s front door to seeing the final web page.
+      </p>
+
+      <h2>What is HTTP?</h2>
+      <p>
+        HTTP is a set of rules used by web browsers and servers to talk to each other. Whenever you load a page, play a video, or view an image, HTTP is making it happen by requesting data from a server and bringing it to your screen.
+      </p>
+
+      <h2>But What About HTTPS?</h2>
+      <p>
+        The "S" in HTTPS stands for "Secure". It means the communication is encrypted, so nobody can snoop on what you're viewing. It's also a way to confirm that you're connected to the right website, not a fake one trying to steal your data.
+      </p>
+
+      <h2>Understanding URLs</h2>
+      <p>
+        A URL (Uniform Resource Locator) is the address of something on the web. Think of it like a house address, but for webpages.
+      </p>
+      <p>Here's a breakdown of a URL:</p>
+      <img src="/assets/url-breakdown.png" alt="URL breakdown" class="post-img" />
+
+      <ul>
+        <li><strong>Scheme:</strong> Protocol (like HTTP or HTTPS).</li>
+        <li><strong>User:</strong> Optional username/password for services that need login.</li>
+        <li><strong>Host:</strong> Domain name or IP address.</li>
+        <li><strong>Port:</strong> Where the service is running (usually 80 or 443).</li>
+        <li><strong>Path:</strong> Location of the file or resource.</li>
+        <li><strong>Query:</strong> Extra information sent to the server.</li>
+        <li><strong>Fragment:</strong> Points to a specific section of the page.</li>
+      </ul>
+
+      <h2>The Conversation: Requests and Responses</h2>
+      <p>
+        Browsers send <strong>HTTP requests</strong> asking for something, and servers reply with <strong>HTTP responses</strong>. Simple as that.
+      </p>
+
+      <h3>HTTP Request Includes:</h3>
+      <ul>
+        <li><strong>Method:</strong> What the browser wants to do (GET, POST, etc.).</li>
+        <li><strong>Headers:</strong> Details about the request (like browser info).</li>
+        <li><strong>Body:</strong> Optional — used when sending data (like forms).</li>
+      </ul>
+
+      <h3>HTTP Response Includes:</h3>
+      <ul>
+        <li><strong>Status Code:</strong> Did it work? (200 OK, 404 Not Found, etc.).</li>
+        <li><strong>Headers:</strong> Details about the returned data.</li>
+        <li><strong>Body:</strong> The actual content (HTML, image, etc.).</li>
+      </ul>
+
+      <h2>Common HTTP Methods</h2>
+      <p>These are like verbs that show what action is being taken:</p>
+      <ul>
+        <li><strong>GET:</strong> Retrieve data (like loading a web page).</li>
+        <li><strong>POST:</strong> Send data (like submitting a form).</li>
+        <li><strong>PUT:</strong> Update something.</li>
+        <li><strong>DELETE:</strong> Remove something.</li>
+      </ul>
+
+      <h2>What Do Those Status Codes Mean?</h2>
+      <p>Servers respond with status codes. Here's a cheat sheet:</p>
+      <ul>
+        <li><strong>200:</strong> OK</li>
+        <li><strong>201:</strong> Created</li>
+        <li><strong>301:</strong> Moved Permanently</li>
+        <li><strong>302:</strong> Found (Temporary Redirect)</li>
+        <li><strong>400:</strong> Bad Request</li>
+        <li><strong>401:</strong> Unauthorized</li>
+        <li><strong>403:</strong> Forbidden</li>
+        <li><strong>404:</strong> Not Found</li>
+        <li><strong>405:</strong> Method Not Allowed</li>
+        <li><strong>500:</strong> Server Error</li>
+        <li><strong>503:</strong> Service Unavailable</li>
+      </ul>
+
+      <h2>Headers — Metadata That Matters</h2>
+      <p>Headers are like footnotes in the request/response.</p>
+
+      <h3>Request Headers</h3>
+      <ul>
+        <li><strong>Host:</strong> Specifies which website.</li>
+        <li><strong>User-Agent:</strong> Info about your browser.</li>
+        <li><strong>Accept-Encoding:</strong> Supported compression formats.</li>
+        <li><strong>Cookie:</strong> Data stored from previous visits.</li>
+      </ul>
+
+      <h3>Response Headers</h3>
+      <ul>
+        <li><strong>Set-Cookie:</strong> Data saved for your session.</li>
+        <li><strong>Cache-Control:</strong> How long to cache the content.</li>
+        <li><strong>Content-Type:</strong> Format of the returned data.</li>
+        <li><strong>Content-Encoding:</strong> How it's compressed.</li>
+      </ul>
+
+      <h2>Cookies — The Web’s Memory</h2>
+      <p>
+        HTTP is stateless — it forgets who you are with every request. Cookies fix that. They’re tiny bits of data saved in your browser to remember you: whether you're logged in, your theme settings, or your progress in a course.
+      </p>
+
+      <p>
+        Want to see cookies in action? Open DevTools in your browser, go to the Network tab, and inspect a request. You'll find the Cookie and Set-Cookie headers in action.
+      </p>
+
+      <h2>Wrap-Up</h2>
+      <p>
+        HTTP is the bloodstream of the web. Whether you're hacking into boxes or just browsing memes, understanding how it works gives you an edge — both as a developer and a cybersecurity enthusiast.
+      </p>
+
+      <p>Got questions? Find me through the <a href="/contact.html">Contact page</a>.</p>
+    </div>
+  </div>
+</body>
+</html>
