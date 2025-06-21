@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Fundamentals Part 2 — Walkthrough</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/main.js"></script>
+  <style>
+    .walkthrough h2 {
+      margin-top: 2.5rem;
+    }
+    .walkthrough .qa {
+      margin-bottom: 2rem;
+    }
+    .walkthrough .qa strong {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .brief {
+      color: #ccc;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    .contents ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    .contents li::marker {
+      content: "→ ";
+      color: #00f0ff;
+    }
+    .contents a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+    .contents a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container walkthrough">
+    <h1 class="header">TryHackMe - Windows Fundamentals 2</h1>
+    <p class="subtitle">Walkthrough with questions, answers, and explanations.</p>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/walkthroughs/">Walkthroughs</a>
+      <a href="/ctfs/">CTFs</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <section class="intro">
+      <p>This walkthrough is for the <strong>"Windows Fundamentals 2"</strong> room on TryHackMe. This room builds on the basics covered in Part 1, diving into deeper Windows tools like the Registry Editor, Resource Monitor, UAC, and Control Panel utilities. Perfect for beginners aiming to strengthen their Windows OS skills in a cybersecurity context.</p>
+    </section>
+
+    <section class="contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#task-1">Task 1 — Introduction</a></li>
+        <li><a href="#task-2">Task 2 — System Configuration</a></li>
+        <li><a href="#task-3">Task 3 — Change UAC Settings</a></li>
+        <li><a href="#task-4">Task 4 — Computer Management</a></li>
+        <li><a href="#task-5">Task 5 — System Information</a></li>
+        <li><a href="#task-6">Task 6 — Resource Monitor</a></li>
+        <li><a href="#task-7">Task 7 — Command Prompt</a></li>
+        <li><a href="#task-8">Task 8 — Registry Editor</a></li>
+        <li><a href="#task-9">Task 9 — Conclusion</a></li>
+      </ul>
+    </section>
+
+    <div class="qa" id="task-1">
+      <h2>Task 1: Introduction</h2>
+      <p class="brief">Get started with the Windows Fundamentals 2 room and power on your virtual machine.</p>
+      <p><strong>1. Read above and start the virtual machine.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+
+    <div class="qa" id="task-2">
+      <h2>Task 2: System Configuration</h2>
+      <p class="brief">Explore tools for configuring and troubleshooting your Windows system.</p>
+      <p><strong>1. What is the name of the service that lists Systems Internals as the manufacturer?</strong><br><strong>Ans:</strong> PsShutdown</p>
+      <p><strong>2. Whom is the Windows license registered to?</strong><br><strong>Ans:</strong> Windows User</p>
+      <p><strong>3. What is the command for Windows Troubleshooting?</strong><br><strong>Ans:</strong> C:\\Windows\\System32\\control.exe /name Microsoft.Troubleshooting</p>
+      <p><strong>4. What command will open the Control Panel?</strong><br><strong>Ans:</strong> control.exe</p>
+    </div>
+
+    <div class="qa" id="task-3">
+      <h2>Task 3: Change UAC Settings</h2>
+      <p class="brief">Learn how to control when you're notified about changes to your computer.</p>
+      <p><strong>1. What is the command to open User Account Control Settings?</strong><br><strong>Ans:</strong> UserAccountControlSettings.exe</p>
+    </div>
+
+    <div class="qa" id="task-4">
+      <h2>Task 4: Computer Management</h2>
+      <p class="brief">Use the Computer Management console to inspect scheduled tasks and shared folders.</p>
+      <p><strong>1. What is the command to open Computer Management?</strong><br><strong>Ans:</strong> compmgmt.msc</p>
+      <p><strong>2. At what time every day is the GoogleUpdateTaskMachineUA task configured to run?</strong><br><strong>Ans:</strong> 6:15 AM</p>
+      <p><strong>3. What is the name of the hidden folder that is shared?</strong><br><strong>Ans:</strong> sh4r3dF0Ld3r</p>
+    </div>
+
+    <div class="qa" id="task-5">
+      <h2>Task 5: System Information</h2>
+      <p class="brief">The System Information tool gives a detailed overview of your system’s configuration.</p>
+      <p><strong>1. What is the command to open System Information?</strong><br><strong>Ans:</strong> msinfo32.exe</p>
+      <p><strong>2. What is listed under System Name?</strong><br><strong>Ans:</strong> THM-WINFUN2</p>
+      <p><strong>3. Under Environment Variables, what is the value for ComSpec?</strong><br><strong>Ans:</strong> %SystemRoot%\system32\cmd.exe</p>
+    </div>
+
+    <div class="qa" id="task-6">
+      <h2>Task 6: Resource Monitor</h2>
+      <p class="brief">Monitor how your system resources (CPU, memory, disk, and network) are used.</p>
+      <p><strong>1. What is the command to open Resource Monitor?</strong><br><strong>Ans:</strong> resmon.exe</p>
+    </div>
+
+    <div class="qa" id="task-7">
+      <h2>Task 7: Command Prompt</h2>
+      <p class="brief">Dive deeper into networking commands using the command line interface.</p>
+      <p><strong>1. In System Configuration, what is the full command for Internet Protocol Configuration?</strong><br><strong>Ans:</strong> C:\\Windows\\System32\\cmd.exe /k %windir%\\system32\\ipconfig.exe</p>
+      <p><strong>2. For the ipconfig command, how do you show detailed information?</strong><br><strong>Ans:</strong> ipconfig /all</p>
+    </div>
+
+    <div class="qa" id="task-8">
+      <h2>Task 8: Registry Editor</h2>
+      <p class="brief">Explore the Windows Registry — a hierarchical database that stores low-level system settings.</p>
+      <p><strong>1. What is the command to open the Registry Editor?</strong><br><strong>Ans:</strong> regedt32.exe</p>
+    </div>
+
+    <div class="qa" id="task-9">
+      <h2>Task 9: Conclusion</h2>
+      <p class="brief">Close the room and shut down the machine to complete the walkthrough.</p>
+      <p><strong>1. Read above.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+  </div>
+</body>
+</html>

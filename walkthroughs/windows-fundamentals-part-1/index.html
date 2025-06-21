@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Fundamentals Part 1 — Walkthrough</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/main.js"></script>
+  <style>
+    .walkthrough h2 {
+      margin-top: 2.5rem;
+    }
+    .walkthrough .qa {
+      margin-bottom: 2rem;
+    }
+    .walkthrough .qa strong {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .brief {
+      color: #ccc;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    .contents ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    .contents li::marker {
+      content: "→ ";
+      color: #00f0ff;
+    }
+    .contents a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+    .contents a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container walkthrough">
+    <h1 class="header">TryHackMe - Windows Fundamentals 1</h1>
+    <p class="subtitle">Walkthrough with questions, answers, and explanations.</p>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/walkthroughs/">Walkthroughs</a>
+      <a href="/ctfs/">CTFs</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <div class="contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#task1">Task 1: Introduction to Windows</a></li>
+        <li><a href="#task2">Task 2: Windows Editions</a></li>
+        <li><a href="#task3">Task 3: The Desktop (GUI)</a></li>
+        <li><a href="#task4">Task 4: The File System</a></li>
+        <li><a href="#task5">Task 5: The Windows\System32 Folders</a></li>
+        <li><a href="#task6">Task 6: User Accounts, Profiles and Permissions</a></li>
+        <li><a href="#task7">Task 7: User Account Control</a></li>
+        <li><a href="#task8">Task 8: Settings and the Control Panel</a></li>
+        <li><a href="#task9">Task 9: Task Manager</a></li>
+        <li><a href="#task10">Task 10: Conclusion</a></li>
+      </ul>
+    </div>
+
+    <div class="qa" id="task1">
+      <h2>Task 1: Introduction to Windows</h2>
+      <p class="brief">Get familiar with the Windows operating system environment and learn to interact with it through a virtual machine.</p>
+      <p><strong>1. Read above and start the virtual machine</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+
+    <div class="qa" id="task2">
+      <h2>Task 2: Windows Editions</h2>
+      <p class="brief">This task introduces the different editions of Windows OS and features that distinguish them.</p>
+      <p><strong>1. What encryption can you enable on Pro that you can't enable in Home?</strong><br><strong>Ans:</strong> BitLocker — A full-disk encryption feature only available on Pro and Enterprise editions of Windows.</p>
+    </div>
+
+    <div class="qa" id="task3">
+      <h2>Task 3: The Desktop (GUI)</h2>
+      <p class="brief">Explore the graphical user interface of Windows including the Start Menu, Taskbar, and Notification Area.</p>
+      <p><strong>1. Which Selection will hide/disable the Search box?</strong><br><strong>Ans:</strong> Hidden</p>
+      <p><strong>2. Which selection will hide/disable the task view button?</strong><br><strong>Ans:</strong> Show Task View Button — Toggling this hides/shows the multitasking view icon.</p>
+      <p><strong>3. Besides Clock and Network, what other icon is visible in the Notification Area?</strong><br><strong>Ans:</strong> Action Center — This holds notifications and quick access toggles.</p>
+    </div>
+
+    <div class="qa" id="task4">
+      <h2>Task 4: The File System</h2>
+      <p class="brief">Understand how files are stored, accessed, and managed in Windows.</p>
+      <p><strong>1. What is the meaning of NTFS?</strong><br><strong>Ans:</strong> New Technology File System — A modern file system offering security, journaling, and support for large volumes.</p>
+    </div>
+
+    <div class="qa" id="task5">
+      <h2>Task 5: The Windows\System32 Folders</h2>
+      <p class="brief">Learn about a crucial system directory that holds OS and system tool executables.</p>
+      <p><strong>1. What is the system variable for the windows folder?</strong><br><strong>Ans:</strong> %windir% — This environment variable points to the Windows installation directory.</p>
+    </div>
+
+    <div class="qa" id="task6">
+      <h2>Task 6: User Accounts, Profiles and Permissions</h2>
+      <p class="brief">Covers user accounts on Windows, their groups, and privileges.</p>
+      <p><strong>1. What is the name of the other user account?</strong><br><strong>Ans:</strong> tryhackmebilly</p>
+      <p><strong>2. What groups is this user a member of?</strong><br><strong>Ans:</strong> Remote Desktop Users, Users</p>
+      <p><strong>3. What built-in account is for guest access to the computer?</strong><br><strong>Ans:</strong> Guest</p>
+      <p><strong>4. What is the account description?</strong><br><strong>Ans:</strong> window$Fun1!</p>
+    </div>
+
+    <div class="qa" id="task7">
+      <h2>Task 7: User Account Control</h2>
+      <p class="brief">This task introduces UAC, which helps prevent unauthorized changes to the operating system.</p>
+      <p><strong>1. What does UAC mean?</strong><br><strong>Ans:</strong> User Account Control</p>
+    </div>
+
+    <div class="qa" id="task8">
+      <h2>Task 8: Settings and the Control Panel</h2>
+      <p class="brief">Learn how to navigate and configure settings using both the modern Settings app and legacy Control Panel.</p>
+      <p><strong>1. In the Control Panel, change the view to Small icons. What is the last setting in the Control Panel view?</strong><br><strong>Ans:</strong> Windows Defender Firewall</p>
+    </div>
+
+    <div class="qa" id="task9">
+      <h2>Task 9: Task Manager</h2>
+      <p class="brief">Task Manager helps monitor system resources and manage applications and processes.</p>
+      <p><strong>1. What is the keyboard shortcut to open Task Manager?</strong><br><strong>Ans:</strong> Ctrl+Shift+Esc</p>
+    </div>
+
+    <div class="qa" id="task10">
+      <h2>Task 10: Conclusion</h2>
+      <p class="brief">Wrap up and power down the virtual machine to end the exercise.</p>
+      <p><strong>1. Read above and terminate the Windows machine you deployed in this room.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+  </div>
+</body>
+</html>

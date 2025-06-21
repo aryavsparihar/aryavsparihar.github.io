@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows Fundamentals Part 3 — Walkthrough</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/main.js"></script>
+  <style>
+    .walkthrough h2 {
+      margin-top: 2.5rem;
+    }
+    .walkthrough .qa {
+      margin-bottom: 2rem;
+    }
+    .walkthrough .qa strong {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .brief {
+      color: #ccc;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    .contents ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    .contents li::marker {
+      content: "→ ";
+      color: #00f0ff;
+    }
+    .contents a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+    .contents a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container walkthrough">
+    <h1 class="header">TryHackMe - Windows Fundamentals 3</h1>
+    <p class="subtitle">Walkthrough with questions, answers, and explanations.</p>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/walkthroughs/">Walkthroughs</a>
+      <a href="/ctfs/">CTFs</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <section class="intro">
+      <p>This walkthrough is for the "Windows Fundamentals 3" room on TryHackMe. It focuses on Windows Defender, Security Center, BitLocker, and Volume Shadow Copy Service. This room is perfect for cybersecurity beginners learning how to work with and secure Windows machines.</p>
+    </section>
+
+    <section class="contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#task-1">Task 1: Introduction</a></li>
+        <li><a href="#task-2">Task 2: Windows Update</a></li>
+        <li><a href="#task-3">Task 3: Windows Security</a></li>
+        <li><a href="#task-4">Task 4: Virus and Threat Protection</a></li>
+        <li><a href="#task-5">Task 5: Firewall & Network Protection</a></li>
+        <li><a href="#task-6">Task 6: App & Browser Control</a></li>
+        <li><a href="#task-7">Task 7: Device Security</a></li>
+        <li><a href="#task-8">Task 8: BitLocker</a></li>
+        <li><a href="#task-9">Task 9: Volume Shadow Copy Service</a></li>
+        <li><a href="#task-10">Task 10: Conclusion</a></li>
+      </ul>
+    </section>
+
+    <div class="qa" id="task-1">
+      <h2>Task 1: Introduction</h2>
+      <p class="brief">Start the virtual machine and get familiar with the security-related topics you'll explore.</p>
+      <p><strong>1. Read above and start the virtual machine.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+
+    <div class="qa" id="task-2">
+      <h2>Task 2: Windows Update</h2>
+      <p class="brief">Learn how and when Windows updates get installed.</p>
+      <p><strong>1. There were two definition updates installed in the attached VM. On what date were these updates installed?</strong><br><strong>Ans:</strong> 5/3/2021</p>
+    </div>
+
+    <div class="qa" id="task-3">
+      <h2>Task 3: Windows Security</h2>
+      <p class="brief">Explore the Security Center dashboard for real-time protection insights.</p>
+      <p><strong>1. Checking the Security section on your VM, which area needs immediate attention?</strong><br><strong>Ans:</strong> Virus & threat protection</p>
+    </div>
+
+    <div class="qa" id="task-4">
+      <h2>Task 4: Virus and Threat Protection</h2>
+      <p class="brief">Examine what features are enabled/disabled and how to manage them.</p>
+      <p><strong>1. Specifically, what is turned off that Windows is notifying you to turn on?</strong><br><strong>Ans:</strong> Real-time protection</p>
+    </div>
+
+    <div class="qa" id="task-5">
+      <h2>Task 5: Firewall & Network Protection</h2>
+      <p class="brief">Understand network profiles and the role of firewalls in public environments.</p>
+      <p><strong>1. If you were connected to airport Wi-Fi, what most likely will be the active firewall profile?</strong><br><strong>Ans:</strong> Public Network</p>
+    </div>
+
+    <div class="qa" id="task-6">
+      <h2>Task 6: App & Browser Control</h2>
+      <p class="brief">Review how Windows defends your system against unrecognized apps and downloads.</p>
+      <p><strong>1. Read the above.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+
+    <div class="qa" id="task-7">
+      <h2>Task 7: Device Security</h2>
+      <p class="brief">Explore security features related to your device's hardware, including TPM.</p>
+      <p><strong>1. What is the TPM?</strong><br><strong>Ans:</strong> Trusted Platform Module</p>
+    </div>
+
+    <div class="qa" id="task-8">
+      <h2>Task 8: BitLocker</h2>
+      <p class="brief">Understand BitLocker encryption and how removable drives can assist on TPM-less systems.</p>
+      <p><strong>1. What does this removable drive contain?</strong><br><strong>Ans:</strong> startup key</p>
+    </div>
+
+    <div class="qa" id="task-9">
+      <h2>Task 9: Volume Shadow Copy Service</h2>
+      <p class="brief">Learn about VSS and how it provides backup and recovery options in Windows.</p>
+      <p><strong>1. What is VSS?</strong><br><strong>Ans:</strong> Volume Shadow Copy Service</p>
+    </div>
+
+    <div class="qa" id="task-10">
+      <h2>Task 10: Conclusion</h2>
+      <p class="brief">Finish the room and shut down the machine to complete the final part of the series.</p>
+      <p><strong>1. Read the above.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+  </div>
+</body>
+</html>
