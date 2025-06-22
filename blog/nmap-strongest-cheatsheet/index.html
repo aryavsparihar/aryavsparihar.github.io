@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ultimate Nmap Cheatsheet for Hackers</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/main.js"></script>
+  <style>
+    .section h2 {
+      margin-top: 2.5rem;
+    }
+    .section img {
+      max-width: 100%;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+    .code {
+      background-color: #222;
+      color: #0ff;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: monospace;
+      display: block;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container section">
+    <h1 class="header">The Ultimate Nmap Cheatsheet for Hackers</h1>
+    <p class="subtitle">Everything you need to dominate recon — with examples, switches, and visuals.</p>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/walkthroughs/">Walkthroughs</a>
+      <a href="/ctfs/">CTFs</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <section class="intro">
+  <p>Nmap is one of the most essential tools in a hacker’s toolkit. It’s used for scanning networks, identifying live hosts, fingerprinting services, and finding vulnerabilities.</p>
+  <p>This guide is a practical, no-nonsense cheatsheet, perfect for anyone doing CTFs, pentesting, or learning network security. Use it as a reference during real engagements or labs.</p>
+</section>
+
+    <section>
+      <h2>🔍 Basic Scans</h2>
+
+      <p>Ping scan — check live hosts without port scan:</p>
+      <pre class="code">nmap -sn 10.10.10.0/24</pre>
+
+      <p>Quick scan of top 1000 ports:</p>
+      <pre class="code">nmap target_ip</pre>
+
+      <p>Scan all 65535 ports:</p>
+      <pre class="code">nmap -p- target_ip</pre>
+    </section>
+
+    <section>
+      <h2>🚪 Port Scan Types</h2>
+
+      <p>SYN (stealth/half-open) scan — default, fast & quiet:</p>
+      <pre class="code">nmap -sS target_ip</pre>
+
+      <p>TCP Connect (no root needed):</p>
+      <pre class="code">nmap -sT target_ip</pre>
+
+      <p>UDP scan — slow but essential:</p>
+      <pre class="code">nmap -sU target_ip</pre>
+
+      <p>NULL, FIN, Xmas scans (firewall evasion):</p>
+      <pre class="code">nmap -sN target_ip
+nmap -sF target_ip
+nmap -sX target_ip</pre>
+    </section>
+
+    <section>
+      <h2>📚 Service & Version Detection</h2>
+
+      <p>Detect running services and versions:</p>
+      <pre class="code">nmap -sV target_ip</pre>
+
+      <p>Detect OS:</p>
+      <pre class="code">nmap -O target_ip</pre>
+
+      <p>Trace route and service detection:</p>
+      <pre class="code">nmap -A target_ip</pre>
+
+      <p>Scan specific ports:</p>
+      <pre class="code">nmap -p 21,22,80 target_ip</pre>
+    </section>
+
+    <section>
+  <h2>🧠 NSE Scripts (Nmap Scripting Engine)</h2>
+
+  <p>NSE scripts can detect CVEs, brute-force login pages, scan web directories, and more. They're grouped into categories like <code>auth</code>, <code>vuln</code>, <code>safe</code>, <code>discovery</code>.</p>
+
+  <p>Run default safe scripts:</p>
+  <pre class="code">nmap -sC target_ip</pre>
+
+  <p>Run a category of scripts:</p>
+  <pre class="code">nmap --script vuln target_ip</pre>
+
+  <p>Run multiple scripts:</p>
+  <pre class="code">nmap --script=ftp-anon,http-title target_ip</pre>
+
+  <p>Run all scripts matching a keyword:</p>
+  <pre class="code">nmap --script 'http-*' target_ip</pre>
+
+  <p>Increase verbosity for NSE results:</p>
+  <pre class="code">nmap --script vuln -vv target_ip</pre>
+</section>
+
+    <section>
+  <h2>🛡️ Firewall Evasion</h2>
+
+  <p>Sometimes stealth matters more than speed. These options help you bypass filters, confuse IDS/IPS, or avoid triggering alerts.</p>
+
+  <p>Decoy scan (spoof multiple IPs):</p>
+  <pre class="code">nmap -sS -D RND:10 target_ip</pre>
+
+  <p>Spoof MAC address to impersonate hardware vendors:</p>
+  <pre class="code">nmap --spoof-mac Apple target_ip</pre>
+
+  <p>Send fragmented packets (evade deep packet inspection):</p>
+  <pre class="code">nmap -f target_ip</pre>
+
+  <p>Randomize scan timing:</p>
+  <pre class="code">nmap -T1 target_ip  # T0 to T5 (T5 = fastest, T0 = sneakiest)</pre>
+
+  <p>Custom payload size (defeat size-based filters):</p>
+  <pre class="code">nmap --data-length 42 target_ip</pre>
+
+  <p>Use specific source port (bypass rules expecting DNS, HTTP):</p>
+  <pre class="code">nmap --source-port 53 target_ip</pre>
+</section>
+
+<section>
+  <h2>🧩 Host Discovery</h2>
+  <p>Before scanning ports, use these to check if targets are alive or filter targets more aggressively.</p>
+
+  <p>Ping sweep of a subnet:</p>
+  <pre class="code">nmap -sn 192.168.1.0/24</pre>
+
+  <p>Skip host discovery (treat all targets as alive):</p>
+  <pre class="code">nmap -Pn target_ip</pre>
+
+  <p>TCP SYN ping to specific ports:</p>
+  <pre class="code">nmap -PS22,80 target_ip</pre>
+
+  <p>ICMP echo (ping):</p>
+  <pre class="code">nmap -PE target_ip</pre>
+
+  <p>ARP discovery (best for local network):</p>
+  <pre class="code">nmap -PR 192.168.1.0/24</pre>
+</section>
+
+<section>
+  <h2>📝 Output & Reporting</h2>
+  <p>Save and reuse your scan results with these output options:</p>
+
+  <p>Normal output:</p>
+  <pre class="code">nmap -oN output.txt target_ip</pre>
+
+  <p>XML output (good for automation tools):</p>
+  <pre class="code">nmap -oX output.xml target_ip</pre>
+
+  <p>Grepable output:</p>
+  <pre class="code">nmap -oG output.gnmap target_ip</pre>
+
+  <p>All at once:</p>
+  <pre class="code">nmap -oA scan_results target_ip</pre>
+</section>
+
+<section>
+  <h2>💣 Pro Scan Combos</h2>
+  <p>These are real-world scan combos to deploy in labs, pentests, or CTF recon:</p>
+
+  <p>Full TCP, all ports, with scripts & OS detect:</p>
+  <pre class="code">nmap -sS -p- -sV -sC -O -T4 -oA full target</pre>
+
+  <p>UDP scan with service detection and top ports:</p>
+  <pre class="code">nmap -sU --top-ports 200 -sV target</pre>
+
+  <p>Top 100 TCP ports, fast, no DNS:</p>
+  <pre class="code">nmap --top-ports 100 -T4 -n target</pre>
+
+  <p>Web-targeted scan:</p>
+  <pre class="code">nmap -p 80,443,8080 --script=http-title,http-methods -sV target</pre>
+
+  <p>Stealthy: slow timing, decoy IPs, custom source port:</p>
+  <pre class="code">nmap -sS -D RND:5 -T1 --source-port 53 target</pre>
+</section>
+
+<section>
+  <h2>🚀 Scan Timing & Speed Control</h2>
+  <p>Fine-tune performance with these timing flags:</p>
+
+  <p>Timing templates:</p>
+  <pre class="code">-T0  # Paranoid (ultra slow, stealthy)
+-T1  # Sneaky
+-T2  # Polite
+-T3  # Normal (default)
+-T4  # Aggressive (for LANs/CTFs)
+-T5  # Insane (unstable)</pre>
+
+  <p>Control scan speed manually:</p>
+  <pre class="code">--min-rate 1000    # Send minimum 1000 packets/sec
+--max-retries 2    # Fail fast if no response</pre>
+</section>
+
+<section>
+
+      <p>Scan all TCP + run default scripts + service/OS detection:</p>
+      <pre class="code">nmap -sS -sV -O -p- -T4 -v target_ip</pre>
+
+      <p>Find vulnerabilities with NSE:</p>
+      <pre class="code">nmap -sV --script vuln target_ip</pre>
+
+      <p>Web server analysis:</p>
+      <pre class="code">nmap -p 80,443 --script http-title,http-methods target_ip</pre>
+    </section>
+
+    
+
+    <section>
+  <h2>🔐 Web & Auth NSE Scripts</h2>
+  <p>When you're scanning web servers or login services, NSE provides powerful automation:</p>
+
+  <p>Detect open directories or admin panels:</p>
+  <pre class="code">nmap --script http-enum -p80,443 target</pre>
+
+  <p>Check HTTP methods allowed (GET, POST, PUT, etc):</p>
+  <pre class="code">nmap --script http-methods -p80,443 target</pre>
+
+  <p>Run web vulnerability checks:</p>
+  <pre class="code">nmap --script http-vuln* -p80,443 target</pre>
+
+  <p>Brute-force FTP login (if anonymous fails):</p>
+  <pre class="code">nmap --script ftp-anon,ftp-brute -p21 target</pre>
+
+  <p>SMB enumeration (users, shares, OS):</p>
+  <pre class="code">nmap --script smb-enum-shares,smb-enum-users -p445 target</pre>
+</section>
+
+<section>
+  <h2>🌐 IPv6 & Advanced Targeting</h2>
+  <p>Scan IPv6 addresses:</p>
+  <pre class="code">nmap -6 target_ipv6</pre>
+
+  <p>Scan from a file:</p>
+  <pre class="code">nmap -iL targets.txt</pre>
+
+  <p>Exclude hosts from a scan:</p>
+  <pre class="code">nmap target_subnet --exclude 192.168.1.1,192.168.1.254</pre>
+</section>
+
+<section>
+  <h2>🧬 Experimental & Rare Flags</h2>
+  <p>These are edge-case options for when everything else fails:</p>
+
+  <p>Bypass RST rate limiting defenses:</p>
+  <pre class="code">nmap --defeat-rst-ratelimit target</pre>
+
+  <p>Use IP ID sequence prediction (IDS evasion):</p>
+  <pre class="code">nmap -sS -p- -T4 -f --ip-options "RR" target</pre>
+
+  <p>Scan with spoofed TTL values:</p>
+  <pre class="code">nmap --ttl 5 target</pre>
+</section>
+
+<section>
+      <h2>📎 Resources & Wrap-Up</h2>
+      <ul>
+        <li><a href="https://nmap.org/book/">Nmap Reference Guide</a></li>
+        <li><a href="https://nmap.org/nsedoc/">NSE Script Index</a></li>
+        <li><a href="/walkthroughs/nmap-room/">TryHackMe Nmap Room Walkthrough</a></li>
+      </ul>
+      <p>I hope my learnings will also help you in yours.</p>
+    </section>
+  </div>
+</body>
+</html>

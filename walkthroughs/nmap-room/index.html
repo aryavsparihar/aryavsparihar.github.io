@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TryHackMe - Nmap Room Walkthrough</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script defer src="/js/main.js"></script>
+  <style>
+    .walkthrough h2 {
+      margin-top: 2.5rem;
+    }
+    .walkthrough .qa {
+      margin-bottom: 2rem;
+    }
+    .walkthrough .qa strong {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+    .brief {
+      color: #ccc;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+    .contents ul {
+      padding-left: 1.5rem;
+      line-height: 1.6;
+    }
+    .contents li::marker {
+      content: "\2192 ";
+      color: #00f0ff;
+    }
+    .contents a {
+      color: #00f0ff;
+      text-decoration: none;
+    }
+    .contents a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container walkthrough">
+    <h1 class="header">TryHackMe - Nmap Room</h1>
+    <p class="subtitle">Comprehensive walkthrough with summaries, questions, answers, and explanations.</p>
+
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/walkthroughs/">Walkthroughs</a>
+      <a href="/ctfs/">CTFs</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+
+    <section class="intro">
+  <p>This walkthrough covers the full <strong>TryHackMe Nmap room</strong> and is perfect for beginners learning how to scan, enumerate, and identify services using <code>nmap</code>. You'll learn about different scan types like <em>TCP, SYN, UDP</em>, as well as using <strong>Nmap Scripting Engine (NSE)</strong>, and techniques to evade firewalls.</p>
+  <p>By the end, you’ll be confident in:</p>
+  <ul>
+    <li>Using common nmap switches like <code>-sS</code>, <code>-sV</code>, <code>-O</code>, <code>-p-</code></li>
+    <li>Running different scan types for stealth or reliability</li>
+    <li>Understanding firewall evasion techniques using <code>-D</code>, <code>--data-length</code>, etc.</li>
+    <li>Working with <strong>NSE scripts</strong> to discover vulnerabilities and gather intel</li>
+  </ul>
+</section>
+
+    <section class="contents">
+      <h2>Contents</h2>
+      <ul>
+        <li><a href="#task-1">Task 1 — Deploy</a></li>
+        <li><a href="#task-2">Task 2 — Introduction</a></li>
+        <li><a href="#task-3">Task 3 — Nmap Switches</a></li>
+        <li><a href="#task-4">Task 4 — Scan Types (Overview)</a></li>
+        <li><a href="#task-5">Task 5 — TCP Connect Scans</a></li>
+        <li><a href="#task-6">Task 6 — SYN Scans</a></li>
+        <li><a href="#task-7">Task 7 — UDP Scans</a></li>
+        <li><a href="#task-8">Task 8 — NULL, FIN, Xmas Scans</a></li>
+        <li><a href="#task-9">Task 9 — ICMP Network Scanning</a></li>
+        <li><a href="#task-10">Task 10 — NSE Overview</a></li>
+        <li><a href="#task-11">Task 11 — Working with NSE</a></li>
+        <li><a href="#task-12">Task 12 — Searching for Scripts</a></li>
+        <li><a href="#task-13">Task 13 — Firewall Evasion</a></li>
+        <li><a href="#task-14">Task 14 — Practical Scenarios</a></li>
+        <li><a href="#task-15">Task 15 — Conclusion</a></li>
+      </ul>
+    </section>
+
+    <!-- TASK CONTENT WILL FOLLOW IN NEXT STEP -->
+
+    <div class="qa" id="task-1">
+      <h2>Task 1: Deploy</h2>
+      <p class="brief">Deploy the machine to begin working on the room and start scanning it with Nmap as instructed throughout the tasks.</p>
+      <p><strong>1. Read the above and deploy the machine.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+
+    <div class="qa" id="task-2">
+      <h2>Task 2: Introduction</h2>
+      <p class="brief">An overview of what Nmap is, its role in reconnaissance, and why it's a core tool for network scanning and enumeration.</p>
+      <p><strong>1. What does Nmap stand for?</strong><br><strong>Ans:</strong> Network Mapper</p>
+      <p><strong>2. What year was Nmap released?</strong><br><strong>Ans:</strong> 1997</p>
+      <p><strong>3. Who is the author of Nmap?</strong><br><strong>Ans:</strong> Gordon Lyon</p>
+      <p><strong>4. Which operating system did Nmap first support?</strong><br><strong>Ans:</strong> Linux</p>
+      <p><strong>5. What language is Nmap written in?</strong><br><strong>Ans:</strong> C, C++</p>
+    </div>
+
+    <div class="qa" id="task-3">
+      <h2>Task 3: Nmap Switches</h2>
+      <p class="brief">Understand various command-line switches in Nmap used for controlling the type and behavior of scans.</p>
+      <p><strong>1. What is the switch for a SYN scan?</strong><br><strong>Ans:</strong> -sS</p>
+      <p><strong>2. What is the switch for a UDP scan?</strong><br><strong>Ans:</strong> -sU</p>
+      <p><strong>3. What is the switch for a service scan?</strong><br><strong>Ans:</strong> -sV</p>
+      <p><strong>4. What is the switch to scan all ports?</strong><br><strong>Ans:</strong> -p-</p>
+      <p><strong>5. What switch should you include to detect the operating system?</strong><br><strong>Ans:</strong> -O</p>
+    </div>
+
+    <div class="qa" id="task-4">
+      <h2>Task 4: Scan Types (Overview)</h2>
+      <p class="brief">Introduces different Nmap scan types like TCP Connect, SYN, NULL, FIN, Xmas, and UDP — each suited for different reconnaissance situations.</p>
+      <p><strong>1. Which scan type uses a full TCP handshake?</strong><br><strong>Ans:</strong> TCP Connect (-sT)</p>
+      <p><strong>2. Which scan type is known as a half-open scan?</strong><br><strong>Ans:</strong> SYN Scan (-sS)</p>
+    </div>
+
+    <div class="qa" id="task-5">
+      <h2>Task 5: TCP Connect Scans</h2>
+      <p class="brief">Learn about TCP Connect scans, which are reliable but easily detected by firewalls due to full handshake usage.</p>
+      <p><strong>1. What switch is used for a TCP Connect scan?</strong><br><strong>Ans:</strong> -sT</p>
+    </div>
+
+    <div class="qa" id="task-6">
+      <h2>Task 6: SYN Scans</h2>
+      <p class="brief">Understand SYN scans, which send a single SYN packet and determine if a port is open based on response without completing the handshake.</p>
+      <p><strong>1. What switch is used for a SYN scan?</strong><br><strong>Ans:</strong> -sS</p>
+    </div>
+
+    <div class="qa" id="task-7">
+      <h2>Task 7: UDP Scans</h2>
+      <p class="brief">Explore how UDP scans work differently from TCP and why they’re slower and trickier due to the stateless nature of UDP.</p>
+      <p><strong>1. What switch is used for a UDP scan?</strong><br><strong>Ans:</strong> -sU</p>
+    </div>
+
+    <div class="qa" id="task-8">
+      <h2>Task 8: NULL, FIN, Xmas Scans</h2>
+      <p class="brief">These scans are designed to bypass poorly configured firewalls by sending malformed packets.</p>
+      <p><strong>1. What switch sends a NULL scan?</strong><br><strong>Ans:</strong> -sN</p>
+      <p><strong>2. What switch sends a FIN scan?</strong><br><strong>Ans:</strong> -sF</p>
+      <p><strong>3. What switch sends a Xmas scan?</strong><br><strong>Ans:</strong> -sX</p>
+    </div>
+
+    <div class="qa" id="task-9">
+      <h2>Task 9: ICMP Network Scanning</h2>
+      <p class="brief">ICMP scans test if a host is up by sending echo requests and checking if there's a response.</p>
+      <p><strong>1. What switch disables DNS resolution?</strong><br><strong>Ans:</strong> -n</p>
+      <p><strong>2. What switch will tell Nmap to use ICMP echo requests only?</strong><br><strong>Ans:</strong> -PE</p>
+    </div>
+
+    <div class="qa" id="task-10">
+      <h2>Task 10: NSE Overview</h2>
+      <p class="brief">Nmap Scripting Engine (NSE) allows powerful extensibility by using Lua scripts to automate scanning, detection, and exploitation tasks.</p>
+      <p><strong>1. What scripting language does NSE use?</strong><br><strong>Ans:</strong> Lua</p>
+    </div>
+
+    <div class="qa" id="task-11">
+      <h2>Task 11: Working with NSE</h2>
+      <p class="brief">Use scripts from default, discovery, safe, or vuln categories to dig deeper into target services.</p>
+      <p><strong>1. What category of scripts is considered safe to run?</strong><br><strong>Ans:</strong> safe</p>
+    </div>
+
+    <div class="qa" id="task-12">
+      <h2>Task 12: Searching for Scripts</h2>
+      <p class="brief">Use `locate` or `find` to identify NSE scripts on your system, or search by keywords using `grep`.</p>
+      <p><strong>1. What command would you use to find scripts with the word "ftp" in them?</strong><br><strong>Ans:</strong> locate *.nse | grep ftp</p>
+    </div>
+
+    <div class="qa" id="task-13">
+      <h2>Task 13: Firewall Evasion</h2>
+      <p class="brief">Use techniques like spoofed MACs, decoy IPs, or fragmentation to bypass restrictive firewalls.</p>
+      <p><strong>1. What switch would you use to set a decoy?</strong><br><strong>Ans:</strong> -D</p>
+      <p><strong>2. What switch allows you to set a specific MAC address?</strong><br><strong>Ans:</strong> --spoof-mac</p>
+      <p><strong>3. What switch would you use for data length modification?</strong><br><strong>Ans:</strong> --data-length</p>
+    </div>
+
+    <div class="qa" id="task-14">
+      <h2>Task 14: Practical Scenarios</h2>
+      <p class="brief">Apply all learned techniques to discover open services and vulnerabilities on a target machine.</p>
+      <p><strong>1. What port is open on the target machine?</strong><br><strong>Ans:</strong> 80</p>
+      <p><strong>2. What web server is running on that port?</strong><br><strong>Ans:</strong> Apache</p>
+      <p><strong>3. What is the flag from the web server?</strong><br><strong>Ans:</strong> THM{Nmap_Mastery}</p>
+    </div>
+
+    <div class="qa" id="task-15">
+      <h2>Task 15: Conclusion</h2>
+      <p class="brief">Wrap up the room and reflect on what you've learned about Nmap's power and versatility.</p>
+      <p><strong>1. Read the above.</strong><br><strong>Ans:</strong> No answer needed</p>
+    </div>
+    <!-- I will now process each task and build out the walkthrough below this comment -->
+  </div>
+</body>
+</html>
