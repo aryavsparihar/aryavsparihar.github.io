@@ -112,16 +112,16 @@ h3 { font-weight: 600; }
   font-family: var(--serif); font-weight: 600;
   font-size: clamp(38px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.015em;
 }
-.contact-line { margin: 16px 0 24px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
-.contact-line span { color: var(--rule); }
-.contact-line a { color: var(--muted); text-decoration: none; }
-.contact-line a:hover { color: var(--accent); }
+.social { list-style: none; padding: 0; margin: 18px 0 24px; display: flex; gap: 14px; }
+.social a { display: block; color: var(--accent); transition: transform .15s ease, opacity .15s; }
+.social a:hover { transform: translateY(-2px); }
+.social svg { width: 28px; height: 28px; display: block; fill: currentColor; }
 
 .lede { font-size: 17.5px; line-height: 1.6; color: var(--heading); margin-bottom: 26px; }
 
 .affiliations { list-style: none; padding: 0; margin: 0; font-size: 14.5px; }
 .affiliations li { display: flex; gap: 12px; align-items: baseline; padding: 4px 0; }
-.affiliations em { font-style: normal; color: var(--muted); }
+.aff-when { flex: none; width: 76px; color: var(--muted); }
 .dot { flex: none; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--accent); transform: translateY(-1px); }
 .dot-now { background: var(--accent); animation: pulse 2.4s ease-out infinite; }
 @keyframes pulse {
@@ -163,8 +163,8 @@ h3 { font-weight: 600; }
   color: var(--muted); margin-bottom: 10px;
 }
 .interests { list-style: none; padding: 0; margin: 0 0 26px; font-size: 15px; }
-.interests li { padding: 3px 0; }
-.interests span { display: inline-block; width: 28px; font-family: var(--serif); font-style: italic; color: var(--accent); }
+.interests li { padding: 3px 0; display: grid; grid-template-columns: 28px 1fr; line-height: 1.45; }
+.interests span { font-family: var(--serif); font-style: italic; color: var(--accent); }
 .edu { margin-bottom: 14px; font-size: 14.5px; line-height: 1.5; }
 .edu p { margin: 0; }
 .edu em { font-style: normal; color: var(--text); }
@@ -276,8 +276,6 @@ h3 { font-weight: 600; }
   .nav { margin-left: 0; flex: 1; gap: 18px; }
   .hero { padding: 44px 0 36px; }
   .lede { font-size: 16.5px; }
-  .contact-line { font-size: 13.5px; }
-  .contact-line span { display: none; }
   .sc-heading { font-size: 23px; }
   .news li { grid-template-columns: 1fr; gap: 0; }
   .cv-row { flex-direction: column; gap: 0; }
