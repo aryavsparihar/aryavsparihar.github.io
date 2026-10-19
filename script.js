@@ -1,37 +1,43 @@
 (function () {
   var root = document.documentElement;
+  var nav = document.querySelector('.nav');
+  var menuToggle = document.querySelector('.menu-toggle');
 
-  // Theme toggle: explicit choice is remembered; otherwise follow the system.
-  var toggle = document.querySelector('.theme-toggle');
-  toggle.addEventListener('click', function () {
-    var current = root.dataset.theme ||
-      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    var next = current === 'light' ? 'dark' : 'light';
+  // Theme toggle: light by default, choice is remembered.
+  document.querySelector('.theme-toggle').addEventListener('click', function () {
+    var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
+  // Mobile menu.
+  menuToggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
   // Highlight the nav link for the section in view.
-  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
   var byId = {};
   links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-  var nav = document.querySelector('.nav');
 
   function setActive(link) {
-    links.forEach(function (a) { a.classList.remove('active'); });
-    link.classList.add('active');
-    // On narrow screens the nav scrolls sideways; keep the active link visible.
-    nav.scrollTo({ left: link.offsetLeft - nav.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2, behavior: 'smooth' });
+    links.forEach(function (a) { a.classList.toggle('active', a === link); });
   }
 
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var link = byId[entry.target.id];
-        if (link) setActive(link);
+        if (entry.isIntersecting && byId[entry.target.id]) setActive(byId[entry.target.id]);
       });
-    }, { rootMargin: '-30% 0px -60% 0px' });
+    }, { rootMargin: '-35% 0px -60% 0px' });
     document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
 
     // The last section is short, so mark it active once the page bottom is reached.

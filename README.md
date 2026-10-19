@@ -3,8 +3,8 @@
 Personal academic site for Aryaveer Singh Parihar. Plain HTML/CSS/JS, no build step.
 
 - `index.html` holds all content (edit the sections there)
-- `style.css` holds the theme (dark by default, light follows the system, and there's a toggle in the top bar)
-- `script.js` handles the theme toggle and the active-section nav highlight
+- `style.css` holds the styling (light by default, with a dark-mode toggle in the navbar)
+- `script.js` handles the dark-mode toggle, the mobile menu, and the active-section nav highlight
 
 ## Preview locally
 
