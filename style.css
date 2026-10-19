@@ -401,7 +401,7 @@ h3 { font-weight: 600; }
   position: absolute; left: 6.5%; top: 47.75%; width: 38.25%; height: auto;
   transform-origin: 18% 55%;
 }
-.huh.show .huh-hand { animation: huh-tap .55s ease-in-out .35s 5; }
+.huh.show .huh-hand { animation: huh-tap .5s ease-in-out .3s 3; }
 .huh-bubble {
   position: absolute; top: 9%; right: 7%; padding: 4px 12px; border-radius: 999px;
   font-family: var(--sans); font-weight: 600; font-size: 17px; color: #141513; background: #fff;

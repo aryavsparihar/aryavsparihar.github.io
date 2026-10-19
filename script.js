@@ -40,51 +40,58 @@
     figDialog.addEventListener('close', function () { figHome.appendChild(figSvg); });
   }
 
-  // Easter egg: clicking the photo shows a watch-tapping cat for 3 seconds, with a synthesised "huh?".
+  // Easter egg: clicking the photo shows a watch-tapping cat for 2 seconds, with a synthesised meow.
   var portraitBtn = document.querySelector('.portrait-btn');
   var huh = document.getElementById('huh');
   var huhTimer = null;
   var audioCtx = null;
 
-  function playHuh() {
+  // Builds a "mi-aaa-ow" into any audio context: a buzzy source whose pitch rises then falls,
+  // shaped by two formant filters that sweep from "ee" through "aa" to "ow".
+  function buildMeow(ctx, t, dest) {
+    var dur = 0.75;
+    var src = ctx.createOscillator(); src.type = 'sawtooth';
+    src.frequency.setValueAtTime(420, t);
+    src.frequency.exponentialRampToValueAtTime(720, t + 0.22);
+    src.frequency.setValueAtTime(720, t + 0.3);
+    src.frequency.exponentialRampToValueAtTime(380, t + dur);
+    var vib = ctx.createOscillator(); vib.frequency.value = 7;
+    var vibAmt = ctx.createGain(); vibAmt.gain.value = 12;
+    vib.connect(vibAmt); vibAmt.connect(src.frequency);
+
+    var amp = ctx.createGain();
+    amp.gain.setValueAtTime(0.0001, t);
+    amp.gain.exponentialRampToValueAtTime(0.35, t + 0.06);   // soft "m"
+    amp.gain.exponentialRampToValueAtTime(1, t + 0.18);
+    amp.gain.setValueAtTime(1, t + 0.45);
+    amp.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+
+    var f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = 5;
+    f1.frequency.setValueAtTime(350, t);
+    f1.frequency.linearRampToValueAtTime(950, t + 0.3);
+    f1.frequency.linearRampToValueAtTime(600, t + dur);
+    var f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = 7;
+    f2.frequency.setValueAtTime(2300, t);
+    f2.frequency.linearRampToValueAtTime(1500, t + 0.3);
+    f2.frequency.linearRampToValueAtTime(900, t + dur);
+    var g1 = ctx.createGain(); g1.gain.value = 3;
+    var g2 = ctx.createGain(); g2.gain.value = 1.6;
+
+    src.connect(f1); f1.connect(g1); g1.connect(amp);
+    src.connect(f2); f2.connect(g2); g2.connect(amp);
+    amp.connect(dest);
+    src.start(t); vib.start(t);
+    src.stop(t + dur + 0.05); vib.stop(t + dur + 0.05);
+  }
+
+  function playMeow() {
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
     try {
       audioCtx = audioCtx || new AC();
       if (audioCtx.state === 'suspended') audioCtx.resume();
-      var ctx = audioCtx, t = ctx.currentTime + 0.05;
-      var out = ctx.createGain(); out.gain.value = 0.55; out.connect(ctx.destination);
-
-      // "h": a short breathy noise burst
-      var len = Math.floor(ctx.sampleRate * 0.12), buf = ctx.createBuffer(1, len, ctx.sampleRate), d = buf.getChannelData(0);
-      for (var i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
-      var noise = ctx.createBufferSource(); noise.buffer = buf;
-      var nf = ctx.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = 1400; nf.Q.value = 0.8;
-      var ng = ctx.createGain();
-      ng.gain.setValueAtTime(0.0001, t);
-      ng.gain.exponentialRampToValueAtTime(0.35, t + 0.03);
-      ng.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-      noise.connect(nf); nf.connect(ng); ng.connect(out);
-      noise.start(t); noise.stop(t + 0.13);
-
-      // "uh?": a voiced vowel whose pitch rises like a question
-      var v = t + 0.06;
-      var osc = ctx.createOscillator(); osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(150, v);
-      osc.frequency.linearRampToValueAtTime(165, v + 0.12);
-      osc.frequency.exponentialRampToValueAtTime(290, v + 0.42);
-      var vg = ctx.createGain();
-      vg.gain.setValueAtTime(0.0001, v);
-      vg.gain.exponentialRampToValueAtTime(1, v + 0.05);
-      vg.gain.setValueAtTime(1, v + 0.3);
-      vg.gain.exponentialRampToValueAtTime(0.0001, v + 0.48);
-      [[700, 6, 4], [1220, 9, 2.4], [2600, 10, 1]].forEach(function (f) {
-        var bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = f[0]; bp.Q.value = f[1];
-        var g = ctx.createGain(); g.gain.value = f[2];
-        osc.connect(bp); bp.connect(g); g.connect(vg);
-      });
-      vg.connect(out);
-      osc.start(v); osc.stop(v + 0.5);
+      var out = audioCtx.createGain(); out.gain.value = 0.35; out.connect(audioCtx.destination);
+      buildMeow(audioCtx, audioCtx.currentTime + 0.05, out);
     } catch (e) {}
   }
 
@@ -100,8 +107,8 @@
       void huh.offsetWidth; // restart the animations on repeat clicks
       huh.classList.add('show');
       huh.setAttribute('aria-hidden', 'false');
-      playHuh();
-      huhTimer = setTimeout(hideHuh, 3000);
+      playMeow();
+      huhTimer = setTimeout(hideHuh, 2000);
     });
     huh.addEventListener('click', hideHuh);
   }
