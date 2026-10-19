@@ -32,3 +32,5 @@ Then open http://localhost:8123.
 4. The site goes live at **https://aryavsparihar.github.io** within a minute or two.
 
 To update the site later, edit `index.html`, then run `git commit -am "Update" && git push`.
+
+When you change `style.css` or `script.js`, also bump the `?v=` number on their links in `index.html`. GitHub Pages lets browsers cache these files for 10 minutes, and a new number makes them fetch the fresh copy.
