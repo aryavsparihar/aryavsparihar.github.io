@@ -36,3 +36,5 @@ Then open http://localhost:8123.
 To update the site later, edit `index.html`, then run `git commit -am "Update" && git push`.
 
 When you change `style.css` or `script.js`, also bump the `?v=` number on their links in `index.html`. GitHub Pages lets browsers cache these files for 10 minutes, and a new number makes them fetch the fresh copy.
+
+The meow in the photo easter egg (`assets/meow.m4a`) is trimmed from "Meow of a Siamese cat" by freemaster2 on Wikimedia Commons, released under CC0.

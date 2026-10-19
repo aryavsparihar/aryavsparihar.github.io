@@ -40,58 +40,19 @@
     figDialog.addEventListener('close', function () { figHome.appendChild(figSvg); });
   }
 
-  // Easter egg: clicking the photo shows a watch-tapping cat for 2 seconds, with a synthesised meow.
+  // Easter egg: clicking the photo shows a watch-tapping cat for 2 seconds, with a real meow
+  // (CC0 recording "Meow of a Siamese cat" by freemaster2, Wikimedia Commons).
   var portraitBtn = document.querySelector('.portrait-btn');
   var huh = document.getElementById('huh');
   var huhTimer = null;
-  var audioCtx = null;
-
-  // Builds a "mi-aaa-ow" into any audio context: a buzzy source whose pitch rises then falls,
-  // shaped by two formant filters that sweep from "ee" through "aa" to "ow".
-  function buildMeow(ctx, t, dest) {
-    var dur = 0.75;
-    var src = ctx.createOscillator(); src.type = 'sawtooth';
-    src.frequency.setValueAtTime(420, t);
-    src.frequency.exponentialRampToValueAtTime(720, t + 0.22);
-    src.frequency.setValueAtTime(720, t + 0.3);
-    src.frequency.exponentialRampToValueAtTime(380, t + dur);
-    var vib = ctx.createOscillator(); vib.frequency.value = 7;
-    var vibAmt = ctx.createGain(); vibAmt.gain.value = 12;
-    vib.connect(vibAmt); vibAmt.connect(src.frequency);
-
-    var amp = ctx.createGain();
-    amp.gain.setValueAtTime(0.0001, t);
-    amp.gain.exponentialRampToValueAtTime(0.35, t + 0.06);   // soft "m"
-    amp.gain.exponentialRampToValueAtTime(1, t + 0.18);
-    amp.gain.setValueAtTime(1, t + 0.45);
-    amp.gain.exponentialRampToValueAtTime(0.0001, t + dur);
-
-    var f1 = ctx.createBiquadFilter(); f1.type = 'bandpass'; f1.Q.value = 5;
-    f1.frequency.setValueAtTime(350, t);
-    f1.frequency.linearRampToValueAtTime(950, t + 0.3);
-    f1.frequency.linearRampToValueAtTime(600, t + dur);
-    var f2 = ctx.createBiquadFilter(); f2.type = 'bandpass'; f2.Q.value = 7;
-    f2.frequency.setValueAtTime(2300, t);
-    f2.frequency.linearRampToValueAtTime(1500, t + 0.3);
-    f2.frequency.linearRampToValueAtTime(900, t + dur);
-    var g1 = ctx.createGain(); g1.gain.value = 3;
-    var g2 = ctx.createGain(); g2.gain.value = 1.6;
-
-    src.connect(f1); f1.connect(g1); g1.connect(amp);
-    src.connect(f2); f2.connect(g2); g2.connect(amp);
-    amp.connect(dest);
-    src.start(t); vib.start(t);
-    src.stop(t + dur + 0.05); vib.stop(t + dur + 0.05);
-  }
+  var meow = null;
 
   function playMeow() {
-    var AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) return;
     try {
-      audioCtx = audioCtx || new AC();
-      if (audioCtx.state === 'suspended') audioCtx.resume();
-      var out = audioCtx.createGain(); out.gain.value = 0.35; out.connect(audioCtx.destination);
-      buildMeow(audioCtx, audioCtx.currentTime + 0.05, out);
+      meow = meow || new Audio('assets/meow.m4a');
+      meow.currentTime = 0;
+      var p = meow.play();
+      if (p && p.catch) p.catch(function () {});
     } catch (e) {}
   }
 
