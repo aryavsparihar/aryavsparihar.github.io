@@ -106,13 +106,6 @@
                     <p class="small">Shri Mata Vaishno Devi University · CGPA 8.36/10</p>
                   </div>
                 </li>
-                <li>
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9zM5 13.2v4L12 21l7-3.8v-4L12 17z"/></svg>
-                  <div>
-                    <p>Senior Secondary (PCM + CS), 2022–2024</p>
-                    <p class="small">S.R. Public Senior Secondary School, Kota</p>
-                  </div>
-                </li>
               </ul>
             </div>
           </div>
@@ -160,12 +153,15 @@
             <p class="card-org">Shri Mata Vaishno Devi University</p>
             <p class="card-meta">May 2026 – Jul 2026 · Katra, Jammu &amp; Kashmir</p>
             <ul>
-              <li>An end-to-end pipeline for behavior-based anomaly detection on resource-constrained mobile
-                platforms, using 25,000 synthesized physics-bounded samples across 13 features.</li>
-              <li>A calibrated Random Forest reached 98.1% detection under a 30% adversarial evasion throttle.
-                An Isolation Forest reached 96.5% recall on structural anomalies not seen in training.</li>
-              <li>SHAP-based interpretability audits, with inference optimized to ~227 µs and ~57 MB,
-                well within a 50 ms real-time budget.</li>
+              <li>Built a behaviour-based detector for malicious USB charging sessions: juice jacking, HID
+                input injection, class-swapping devices, and concealed hardware. A generative telemetry
+                simulator supplies the data: 60,000 sessions, 82 features, and 14 attack and benign families.</li>
+              <li>Evaluated it under deliberately hard protocols: unseen devices and chargers, held-out attack
+                families, benign look-alike sessions, and a realistic 0.1% attack prevalence. I audited my own
+                earlier version and replaced its inflated headline numbers.</li>
+              <li>Deployed the calibrated gradient-boosting model, explained with SHAP, as a dependency-free
+                C scorer (27 KB source, ~1 µs p99 latency, matching the Python model on every test session),
+                alongside a read-only Linux USB monitor prototype.</li>
             </ul>
           </article>
         </div>
@@ -215,12 +211,15 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg>
             </div>
             <div class="project-body">
-              <h3>Adversarial Anomaly Detection</h3>
+              <h3>Behaviour-Based Detection of USB Charging Threats</h3>
               <p class="project-date">May 2026 – Jul 2026</p>
-              <p>Interpretable on-device anomaly detection that stays robust under adversarial evasion:
-                98.1% detection, 96.5% recall on unseen anomalies, and ~227 µs inference latency.</p>
+              <p>A detection pipeline and telemetry simulator for malicious USB charging sessions. Testing is
+                deliberately hard: on chargers and devices the model never saw, recall at a 1% false-positive
+                budget is 80%, with large variance across seeds. In-distribution accuracy is 98%, against
+                77% for a rule baseline. The scorer exports to 27 KB of dependency-free C. All results are
+                on synthetic data.</p>
               <ul class="btn-tags">
-                <li>scikit-learn</li><li>SHAP</li><li>Isolation Forest</li>
+                <li>Gradient Boosting</li><li>SHAP</li><li>ONNX / C export</li><li>Adversarial ML</li>
               </ul>
             </div>
           </article>
