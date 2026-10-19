@@ -1,6 +1,8 @@
 # aryavsparihar.github.io
 
-Personal academic site for Aryaveer Singh Parihar. Plain HTML/CSS/JS, no build step.
+Personal academic site for Aryaveer Singh Parihar, live at **https://aryavsparihar.in**. Plain HTML/CSS/JS, no build step.
+
+The custom domain is set by the `CNAME` file and four GitHub A records at GoDaddy (185.199.108–111.153). Don't delete `CNAME`, or the site falls back to aryavsparihar.github.io.
 
 - `index.html` holds all content (edit the sections there)
 - `style.css` holds the styling (light by default, with a dark-mode toggle in the navbar)
