@@ -1,35 +1,32 @@
 (function () {
   var root = document.documentElement;
-  var nav = document.querySelector('.nav');
-  var menuToggle = document.querySelector('.menu-toggle');
+  var header = document.querySelector('.header');
 
-  // Theme toggle: light by default, choice is remembered.
+  // Theme toggle: follows the system until the visitor picks one.
   document.querySelector('.theme-toggle').addEventListener('click', function () {
-    var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    var current = root.dataset.theme ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = current === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // Mobile menu.
-  menuToggle.addEventListener('click', function () {
-    var open = nav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(open));
-  });
-
-  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
-  links.forEach(function (a) {
-    a.addEventListener('click', function () {
-      nav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+  // Show the name in the header once the big heading has scrolled away.
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 120);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   // Highlight the nav link for the section in view.
+  var nav = document.querySelector('.nav');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
   var byId = {};
   links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
 
   function setActive(link) {
     links.forEach(function (a) { a.classList.toggle('active', a === link); });
+    if (link) nav.scrollTo({ left: link.offsetLeft - nav.offsetLeft - 16, behavior: 'smooth' });
   }
 
   if ('IntersectionObserver' in window) {
@@ -37,7 +34,7 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting && byId[entry.target.id]) setActive(byId[entry.target.id]);
       });
-    }, { rootMargin: '-35% 0px -60% 0px' });
+    }, { rootMargin: '-30% 0px -65% 0px' });
     document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
 
     // The last section is short, so mark it active once the page bottom is reached.
