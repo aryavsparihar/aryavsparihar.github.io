@@ -294,3 +294,15 @@ h3 { font-weight: 600; }
   .packet { display: none; }
   * { transition: none !important; }
 }
+
+/* Highlighted roles and institutions */
+.affiliations strong { font-weight: 600; color: var(--heading); }
+.inst { color: var(--accent); font-weight: 500; }
+.prose strong { font-weight: 600; color: var(--heading); }
+
+/* Portrait */
+.portrait {
+  display: block; width: 100%; max-width: 260px; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 10px; margin-bottom: 26px; border: 1px solid var(--rule);
+}
+@media (max-width: 900px) { .portrait { max-width: 220px; } }
