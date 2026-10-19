@@ -360,15 +360,64 @@ h3 { font-weight: 600; }
 @media (max-width: 900px) {
   .profile-grid { grid-template-columns: 1fr; gap: 36px; }
   .profile-col { display: grid; grid-template-columns: 150px 1fr; column-gap: 24px; align-items: start; }
-  .profile-col .portrait { width: 150px; grid-row: span 3; margin-bottom: 0; }
+  .profile-col .portrait { width: 150px; }
+  .profile-col .portrait-btn { grid-row: span 3; margin-bottom: 0; align-self: start; }
   .profile-col .lede, .profile-col .affiliations { grid-column: 1 / -1; }
   .profile-col .lede { margin-top: 20px; }
 }
 @media (max-width: 640px) {
   .hero { padding: 36px 0 28px; }
   .profile-col { display: block; }
-  .profile-col .portrait { width: 132px; margin-bottom: 18px; }
+  .profile-col .portrait { width: 132px; }
+  .profile-col .portrait-btn { margin-bottom: 18px; }
   .profile-col h1 { font-size: 30px; }
   .bio-heading { font-size: 28px; }
   .bio-cols { grid-template-columns: 1fr; gap: 22px; }
+}
+
+/* Easter egg: click the photo, a cat taps its watch for 3 seconds */
+.portrait-btn {
+  display: block; padding: 0; margin: 0 0 22px; border: 0; background: none;
+  cursor: pointer; border-radius: 14px; transition: transform .15s ease;
+}
+.portrait-btn .portrait { margin-bottom: 0; }
+.portrait-btn:hover { transform: rotate(-1.5deg) scale(1.02); }
+.portrait-btn:active { transform: scale(0.98); }
+
+.huh {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+  pointer-events: none; opacity: 0; transition: opacity .2s ease;
+}
+.huh.show { opacity: 1; pointer-events: auto; cursor: pointer; }
+.huh-card {
+  position: relative; width: min(300px, 72vw); aspect-ratio: 1;
+  border-radius: 22px; overflow: hidden; background: #fff;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.12);
+  transform: scale(0.6) rotate(-6deg);
+}
+.huh.show .huh-card { animation: huh-pop .45s cubic-bezier(.2, 1.6, .4, 1) forwards; }
+.huh-base { display: block; width: 100%; height: 100%; }
+.huh-hand {
+  position: absolute; left: 6.5%; top: 47.75%; width: 38.25%; height: auto;
+  transform-origin: 18% 55%;
+}
+.huh.show .huh-hand { animation: huh-tap .55s ease-in-out .35s 5; }
+.huh-bubble {
+  position: absolute; top: 9%; right: 7%; padding: 4px 12px; border-radius: 999px;
+  font-family: var(--sans); font-weight: 600; font-size: 17px; color: #141513; background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); transform: scale(0); transform-origin: 20% 100%;
+}
+.huh.show .huh-bubble { animation: huh-bubble .35s cubic-bezier(.2, 1.6, .4, 1) .15s forwards; }
+
+@keyframes huh-pop { to { transform: scale(1) rotate(0deg); } }
+@keyframes huh-bubble { to { transform: scale(1); } }
+@keyframes huh-tap {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  45% { transform: translate(5%, 12%) rotate(16deg); }
+  60% { transform: translate(6%, 15%) rotate(19deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .huh.show .huh-card { animation: none; transform: none; }
+  .huh.show .huh-hand { animation: none; }
+  .huh.show .huh-bubble { animation: none; transform: none; }
 }
