@@ -254,7 +254,7 @@ h3 { font-weight: 600; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
 .plain { list-style: none; padding: 0; margin: 0; font-size: 15px; }
 .plain li { padding: 4px 0; }
-.skills { display: grid; grid-template-columns: 130px 1fr; gap: 6px 16px; margin: 0; font-size: 15px; }
+.skills { display: grid; grid-template-columns: 150px 1fr; gap: 6px 16px; margin: 0; font-size: 15px; }
 .skills dt { font-weight: 600; color: var(--heading); }
 .skills dd { margin: 0; }
 
@@ -282,6 +282,7 @@ h3 { font-weight: 600; }
   .cv-right { white-space: normal; }
   .projects, .two-col { grid-template-columns: 1fr; }
   .two-col { gap: 0; }
+  .two-col > div + div { margin-top: 36px; }
   .project, .project.featured { padding: 18px; }
   .skills { grid-template-columns: 1fr; gap: 0; }
   .skills dd { margin-bottom: 8px; }
