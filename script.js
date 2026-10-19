@@ -24,6 +24,22 @@
     });
   });
 
+  // Figure 1: small in the project card, enlarged in a dialog on click.
+  var figOpen = document.querySelector('.fig-open');
+  var figDialog = document.getElementById('fig1-dialog');
+  if (figOpen && figDialog && typeof figDialog.showModal === 'function') {
+    var figSvg = figOpen.querySelector('svg');
+    var figHome = figOpen.querySelector('.fig-slot');
+    var figSlot = figDialog.querySelector('.fig-dialog-slot');
+    figOpen.addEventListener('click', function () {
+      figSlot.appendChild(figSvg);
+      figDialog.showModal();
+    });
+    figDialog.querySelector('.fig-close').addEventListener('click', function () { figDialog.close(); });
+    figDialog.addEventListener('click', function (e) { if (e.target === figDialog) figDialog.close(); });
+    figDialog.addEventListener('close', function () { figHome.appendChild(figSvg); });
+  }
+
   // Highlight the nav link for the section in view.
   var nav = document.querySelector('.nav');
   var links = Array.prototype.slice.call(nav.querySelectorAll('a'));

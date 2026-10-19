@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=202610191414">
+  <link rel="stylesheet" href="style.css?v=202610192126">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -38,7 +38,7 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero-grid">
+      <div class="wrap hero-grid hero-single">
         <div class="hero-text">
           <div class="identity">
             <img class="portrait" src="assets/aryaveer.jpg" width="150" height="188" alt="Aryaveer Singh Parihar">
@@ -58,8 +58,8 @@
             </div>
           </div>
           <p class="lede">
-            I work on hardware-software co-design for edge AI: compressing and adapting foundation models so they
-            run in real time on microcontrollers and single-board computers, with no cloud to fall back on.
+            I make AI efficient enough to run on small, low-power devices, so it keeps working where the cloud
+            can't reach.
           </p>
           <ul class="affiliations">
             <li><span class="dot dot-now"></span><span class="aff-when">Now</span><span><strong>Research and Development Intern (Erasmus+)</strong><br><span class="inst">University of Ljubljana</span></span></li>
@@ -67,62 +67,6 @@
             <li><span class="dot"></span><span class="aff-when">Studying</span><span><strong>Bachelor of Technology in Computer Science and Engineering</strong><br><span class="inst">Shri Mata Vaishno Devi University</span></span></li>
           </ul>
         </div>
-
-        <figure class="figure" aria-labelledby="fig1-caption">
-          <svg class="continuum" viewBox="0 0 360 250" role="img" aria-label="Diagram: a query is placed on a device, an edge server, or a cloud data centre, depending on carbon intensity and latency.">
-            <defs>
-              <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse">
-                <circle cx="1" cy="1" r="0.8" class="grid-dot"/>
-              </pattern>
-            </defs>
-            <rect x="0" y="0" width="360" height="250" fill="url(#grid)"/>
-
-            <!-- query source -->
-            <g class="node">
-              <circle cx="40" cy="125" r="18" class="node-fill"/>
-              <path d="M32 125h16M40 117v16" class="stroke-accent"/>
-              <text x="40" y="162" class="label" text-anchor="middle">query</text>
-            </g>
-
-            <!-- routes -->
-            <path id="r-device" d="M58 125 C 120 125, 140 50, 190 50" class="route"/>
-            <path id="r-edge"   d="M58 125 L 190 125" class="route"/>
-            <path id="r-cloud"  d="M58 125 C 120 125, 140 200, 190 200" class="route"/>
-
-            <!-- device tier -->
-            <g class="node">
-              <rect x="190" y="32" width="64" height="36" rx="5" class="node-fill"/>
-              <rect x="200" y="40" width="44" height="20" rx="2" class="stroke-ink"/>
-              <text x="268" y="47" class="label">device</text>
-              <text x="268" y="60" class="sublabel">laptop · phone</text>
-            </g>
-            <!-- edge tier -->
-            <g class="node">
-              <rect x="190" y="107" width="64" height="36" rx="5" class="node-fill"/>
-              <rect x="204" y="115" width="20" height="20" rx="2" class="stroke-ink"/>
-              <path d="M209 115v-4M219 115v-4M209 135v4M219 135v4M204 120h-4M204 130h-4M224 120h4M224 130h4" class="stroke-ink"/>
-              <text x="268" y="122" class="label">edge</text>
-              <text x="268" y="135" class="sublabel">local server</text>
-            </g>
-            <!-- cloud tier -->
-            <g class="node">
-              <rect x="190" y="182" width="64" height="36" rx="5" class="node-fill"/>
-              <path d="M204 206h34M204 198h34M204 190h34" class="stroke-ink"/>
-              <text x="268" y="197" class="label">cloud</text>
-              <text x="268" y="210" class="sublabel">data centre</text>
-            </g>
-
-            <!-- moving packets -->
-            <circle r="4" class="packet p1"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#r-edge"/></animateMotion></circle>
-            <circle r="4" class="packet p2"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#r-device"/></animateMotion></circle>
-            <circle r="4" class="packet p3"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#r-cloud"/></animateMotion></circle>
-          </svg>
-          <figcaption id="fig1-caption">
-            <strong>Figure 1.</strong> Interactive queries can't wait for cleaner electricity, so a carbon-aware
-            scheduler changes <em>where</em> and <em>how</em> a query runs (on which tier, with which model size
-            and quantisation) rather than <em>when</em>.
-          </figcaption>
-        </figure>
       </div>
     </section>
 
@@ -133,25 +77,27 @@
         <div class="about-grid">
           <div class="prose">
             <p>
-              I'm currently a <strong>Research and Development Intern</strong> under the Erasmus+ programme at the
-              <strong>University of Ljubljana, Slovenia</strong>, working with Prof. Veljko Pejović on carbon-aware
-              scheduling for large language model inference. In January 2027, I will join the <strong>Cognitive
-              Interface Lab at Nanyang Technological University Singapore</strong> as a <strong>Visiting
-              Researcher</strong>.
+              My path into research started with a practical problem. In the Chenab Valley of Jammu and Kashmir, I
+              built <strong>Nida-e-Watan</strong>, an offline AI system for villages with only a couple of hours of
+              internet a day. Fitting language models onto a small cluster of Raspberry Pis taught me that
+              <strong>model compression</strong> and <strong>hardware-software co-design</strong> decide whether AI
+              is usable at all outside a data centre.
             </p>
             <p>
-              My research centres on the physical deployment of foundation models at the edge of autonomous and
-              embodied systems. I study <strong>hardware-software co-design</strong> strategies that compress,
-              adapt, and localise models onto microcontroller-class and single-board platforms, so robots and
-              human-robot interaction systems can run inference in real time without depending on the cloud.
+              That question led to my current work as a <strong>Research and Development Intern</strong> at the
+              <strong>University of Ljubljana, Slovenia</strong>, with Prof. Veljko Pejović. I measure what language
+              model inference really costs in <strong>energy and carbon</strong>, and I am building a scheduler that
+              decides where each query should run: on the device, at the edge, or in the cloud.
             </p>
             <p>
-              My work spans the full stack, from <strong>model compression</strong> (quantisation, pruning, and
-              distillation) and <strong>edge-native sensor fusion</strong> to tightly coupled
-              <strong>perception-action pipelines</strong> for resource-constrained autonomous agents in dynamic,
-              GPS-denied environments. Increasingly, I am interested in the <strong>robustness, security, and
-              interpretability</strong> of these systems, so that agents deployed under real-world constraints
-              remain trustworthy, auditable, and resilient to adversarial conditions.
+              The next step brings this work closer to people. From January 2027, as a <strong>Visiting
+              Researcher</strong> at the <strong>Cognitive Interface Lab, Nanyang Technological University
+              Singapore</strong>, I will work on <strong>wearable systems</strong> that read biosignals and respond in
+              real time, where every milliwatt and every kilobyte of memory counts.
+            </p>
+            <p>
+              Across all of this, I care about systems that stay <strong>robust, secure, and interpretable</strong>
+              once they leave the lab, so that people can trust the AI they carry with them.
             </p>
             <p>
               I am pursuing a Bachelor of Technology in Computer Science and Engineering at Shri Mata Vaishno Devi
@@ -264,6 +210,61 @@
                   <tr><th scope="row">Data centre</th><td>NVIDIA A100</td><td class="state">next</td></tr>
                 </tbody>
               </table>
+              <figure class="fig-mini">
+                <button class="fig-open" type="button" aria-haspopup="dialog" aria-controls="fig1-dialog" title="Enlarge Figure 1">
+                  <span class="fig-slot">
+                    <svg class="continuum" viewBox="0 0 360 250" role="img" aria-label="Diagram: a query is placed on a device, an edge server, or a cloud data centre, depending on carbon intensity and latency.">
+            <defs>
+              <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.8" class="grid-dot"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="360" height="250" fill="url(#grid)"/>
+
+            <!-- query source -->
+            <g class="node">
+              <circle cx="40" cy="125" r="18" class="node-fill"/>
+              <path d="M32 125h16M40 117v16" class="stroke-accent"/>
+              <text x="40" y="162" class="label" text-anchor="middle">query</text>
+            </g>
+
+            <!-- routes -->
+            <path id="r-device" d="M58 125 C 120 125, 140 50, 190 50" class="route"/>
+            <path id="r-edge"   d="M58 125 L 190 125" class="route"/>
+            <path id="r-cloud"  d="M58 125 C 120 125, 140 200, 190 200" class="route"/>
+
+            <!-- device tier -->
+            <g class="node">
+              <rect x="190" y="32" width="64" height="36" rx="5" class="node-fill"/>
+              <rect x="200" y="40" width="44" height="20" rx="2" class="stroke-ink"/>
+              <text x="268" y="47" class="label">device</text>
+              <text x="268" y="60" class="sublabel">laptop · phone</text>
+            </g>
+            <!-- edge tier -->
+            <g class="node">
+              <rect x="190" y="107" width="64" height="36" rx="5" class="node-fill"/>
+              <rect x="204" y="115" width="20" height="20" rx="2" class="stroke-ink"/>
+              <path d="M209 115v-4M219 115v-4M209 135v4M219 135v4M204 120h-4M204 130h-4M224 120h4M224 130h4" class="stroke-ink"/>
+              <text x="268" y="122" class="label">edge</text>
+              <text x="268" y="135" class="sublabel">local server</text>
+            </g>
+            <!-- cloud tier -->
+            <g class="node">
+              <rect x="190" y="182" width="64" height="36" rx="5" class="node-fill"/>
+              <path d="M204 206h34M204 198h34M204 190h34" class="stroke-ink"/>
+              <text x="268" y="197" class="label">cloud</text>
+              <text x="268" y="210" class="sublabel">data centre</text>
+            </g>
+
+            <!-- moving packets -->
+            <circle r="4" class="packet p1"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#r-edge"/></animateMotion></circle>
+            <circle r="4" class="packet p2"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#r-device"/></animateMotion></circle>
+            <circle r="4" class="packet p3"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#r-cloud"/></animateMotion></circle>
+          </svg>
+                  </span>
+                </button>
+                <figcaption><strong>Figure 1.</strong> Where a query can run. <span class="fig-hint">Click to enlarge.</span></figcaption>
+              </figure>
             </div>
             <div class="project-body">
               <p>
@@ -413,10 +414,18 @@
     </section>
   </main>
 
+  <dialog class="fig-dialog" id="fig1-dialog" aria-labelledby="fig1-caption">
+    <button class="fig-close" type="button" aria-label="Close">×</button>
+    <div class="fig-dialog-slot"></div>
+    <p id="fig1-caption" class="fig-dialog-caption"><strong>Figure 1.</strong> Interactive queries can't wait for
+      cleaner electricity, so a carbon-aware scheduler changes <em>where</em> and <em>how</em> a query runs (on which
+      tier, with which model size and quantisation) rather than <em>when</em>.</p>
+  </dialog>
+
   <footer class="footer">
     <div class="wrap"><p>© <span id="year">2026</span> Aryaveer Singh Parihar</p></div>
   </footer>
 
-  <script src="script.js?v=202610191414"></script>
+  <script src="script.js?v=202610192126"></script>
 </body>
 </html>

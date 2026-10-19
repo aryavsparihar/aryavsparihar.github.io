@@ -315,3 +315,36 @@ h3 { font-weight: 600; }
   .identity { flex-direction: column; align-items: flex-start; gap: 18px; }
   .portrait { width: 132px; }
 }
+
+/* Hero without the figure: one calm column */
+.hero-single { grid-template-columns: 1fr; }
+.hero-single .hero-text { max-width: 640px; }
+
+/* Figure 1, tucked into the carbon project card (textbook style) */
+.fig-mini { margin: 22px 0 0; width: 220px; max-width: 100%; }
+.fig-open {
+  display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in;
+  border-radius: 8px; transition: transform .15s ease;
+}
+.fig-open:hover { transform: translateY(-1px); }
+.fig-open .continuum { border-radius: 8px; }
+.fig-open:hover .continuum { border-color: color-mix(in srgb, var(--accent) 45%, var(--rule)); }
+.fig-mini figcaption { font-size: 12.5px; line-height: 1.45; color: var(--muted); margin-top: 6px; }
+.fig-mini figcaption strong { color: var(--heading); }
+.fig-hint { white-space: nowrap; }
+
+.fig-dialog {
+  width: min(640px, calc(100vw - 32px)); padding: 20px 20px 16px; border: 1px solid var(--rule);
+  border-radius: 12px; background: var(--bg); color: var(--text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+.fig-dialog::backdrop { background: rgba(10, 12, 10, 0.45); backdrop-filter: blur(2px); }
+.fig-dialog .continuum { border-radius: 8px; }
+.fig-dialog-caption { font-size: 14px; line-height: 1.55; color: var(--muted); margin: 12px 0 0; }
+.fig-dialog-caption strong { color: var(--heading); }
+.fig-close {
+  position: absolute; top: 6px; right: 10px; width: 32px; height: 32px;
+  background: none; border: 0; font-size: 24px; line-height: 1; color: var(--muted); cursor: pointer;
+}
+.fig-close:hover { color: var(--heading); }
+.fig-dialog-slot { margin-top: 18px; }
