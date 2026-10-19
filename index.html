@@ -4,25 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aryaveer Singh Parihar</title>
-  <meta name="description" content="Aryaveer Singh Parihar, CS undergraduate at SMVDU building AI that works where the cloud can't reach: edge AI, sustainable inference, trustworthy autonomy.">
+  <meta name="description" content="Aryaveer Singh Parihar: Computer Science undergraduate at Shri Mata Vaishno Devi University working on edge AI, carbon-aware inference, and trustworthy autonomy.">
   <meta property="og:title" content="Aryaveer Singh Parihar">
   <meta property="og:description" content="Building AI that works where the cloud can't reach.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b4532a'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23fbf9f4'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='14' y='14' width='36' height='36' rx='4' fill='none' stroke='%2322614a' stroke-width='5'/%3E%3Cpath d='M24 14V4M40 14V4M24 60V50M40 60V50M14 24H4M14 40H4M60 24H50M60 40H50' stroke='%2322614a' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%2322614a'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
   <script>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner">
-      <a class="wordmark" href="#top">Aryaveer Singh Parihar</a>
+  <header class="navbar">
+    <div class="wrap navbar-inner">
+      <a class="brand" href="#top">Aryaveer Singh Parihar</a>
       <nav class="nav" aria-label="Sections">
+        <a href="#about">About</a>
         <a href="#news">News</a>
-        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#writing">Writing</a>
         <a href="#service">Service</a>
@@ -34,265 +32,366 @@
     </div>
   </header>
 
-  <main id="top" class="page">
-    <!-- INTRO -->
-    <section class="intro">
-      <h1>Aryaveer Singh Parihar</h1>
-      <p class="tagline">Building AI that works where the cloud can't reach.</p>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="kicker">Edge AI &amp; Machine Learning Systems</p>
+          <h1>Aryaveer Singh Parihar</h1>
+          <p class="contact-line">
+            <a href="mailto:aryavsparihar@gmail.com">aryavsparihar@gmail.com</a>
+            <span aria-hidden="true">|</span>
+            <a href="https://linkedin.com/in/aryavsparihar" target="_blank" rel="noopener">linkedin.com/in/aryavsparihar</a>
+            <span aria-hidden="true">|</span>
+            <a href="https://github.com/aryavsparihar" target="_blank" rel="noopener">github.com/aryavsparihar</a>
+          </p>
+          <p class="lede">
+            I build AI that works where the cloud can't reach: models compressed onto microcontrollers and
+            single-board computers, inference scheduled around the carbon cost of electricity, and autonomous
+            systems that stay trustworthy under real-world constraints.
+          </p>
+          <ul class="affiliations">
+            <li><span class="dot dot-now"></span><span><em>Now</em> &mdash; Research &amp; Development Intern (Erasmus+), University of Ljubljana</span></li>
+            <li><span class="dot"></span><span><em>From January 2027</em> &mdash; Visiting Researcher, Cognitive Interface Lab, Nanyang Technological University, Singapore</span></li>
+            <li><span class="dot"></span><span><em>Studying</em> &mdash; Bachelor of Technology in Computer Science, Shri Mata Vaishno Devi University</span></li>
+          </ul>
+        </div>
 
-      <ul class="roles">
-        <li>B.Tech, Computer Science &amp; Engineering, <strong>Shri Mata Vaishno Devi University</strong></li>
-        <li>Erasmus+ R&amp;D Intern, <strong>University of Ljubljana</strong></li>
-        <li>Incoming Visiting Researcher, <strong>NTU Singapore</strong></li>
-      </ul>
+        <figure class="figure" aria-labelledby="fig1-caption">
+          <svg class="continuum" viewBox="0 0 360 250" role="img" aria-label="Diagram: a query is placed on a device, an edge server, or a cloud data centre, depending on carbon intensity and latency.">
+            <defs>
+              <pattern id="grid" width="12" height="12" patternUnits="userSpaceOnUse">
+                <circle cx="1" cy="1" r="0.8" class="grid-dot"/>
+              </pattern>
+            </defs>
+            <rect x="0" y="0" width="360" height="250" fill="url(#grid)"/>
 
-      <p class="links">
-        <a href="mailto:aryavsparihar@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/aryavsparihar" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/aryavsparihar" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.researchgate.net/publication/408315648_Nida-e-Bazgasht-e-Watan_The_Call_to_Return_to_The_Motherland" target="_blank" rel="noopener">ResearchGate</a>
-      </p>
+            <!-- query source -->
+            <g class="node">
+              <circle cx="40" cy="125" r="18" class="node-fill"/>
+              <path d="M32 125h16M40 117v16" class="stroke-accent"/>
+              <text x="40" y="162" class="label" text-anchor="middle">query</text>
+            </g>
 
-      <div class="prose">
-        <p>
-          I'm a Computer Science undergraduate at Shri Mata Vaishno Devi University in Jammu &amp; Kashmir.
-          I work on getting capable models to run on small, power-limited hardware, so they keep working
-          with no reliable connection, little energy, and real privacy stakes. I'm currently a Research
-          &amp; Development Intern (Erasmus+) at the University of Ljubljana. In January 2027, I'll join the
-          Cognitive Interface Lab at Nanyang Technological University, Singapore, as a Visiting Researcher.
-        </p>
-        <p>
-          I'm also interested in NLP for low-resource South Asian languages, wearable biosensing, and AI
-          policy for digital inclusion.
-        </p>
+            <!-- routes -->
+            <path id="r-device" d="M58 125 C 120 125, 140 50, 190 50" class="route"/>
+            <path id="r-edge"   d="M58 125 L 190 125" class="route"/>
+            <path id="r-cloud"  d="M58 125 C 120 125, 140 200, 190 200" class="route"/>
+
+            <!-- device tier -->
+            <g class="node">
+              <rect x="190" y="32" width="64" height="36" rx="5" class="node-fill"/>
+              <rect x="200" y="40" width="44" height="20" rx="2" class="stroke-ink"/>
+              <text x="268" y="47" class="label">device</text>
+              <text x="268" y="60" class="sublabel">laptop · phone</text>
+            </g>
+            <!-- edge tier -->
+            <g class="node">
+              <rect x="190" y="107" width="64" height="36" rx="5" class="node-fill"/>
+              <rect x="204" y="115" width="20" height="20" rx="2" class="stroke-ink"/>
+              <path d="M209 115v-4M219 115v-4M209 135v4M219 135v4M204 120h-4M204 130h-4M224 120h4M224 130h4" class="stroke-ink"/>
+              <text x="268" y="122" class="label">edge</text>
+              <text x="268" y="135" class="sublabel">local server</text>
+            </g>
+            <!-- cloud tier -->
+            <g class="node">
+              <rect x="190" y="182" width="64" height="36" rx="5" class="node-fill"/>
+              <path d="M204 206h34M204 198h34M204 190h34" class="stroke-ink"/>
+              <text x="268" y="197" class="label">cloud</text>
+              <text x="268" y="210" class="sublabel">data centre</text>
+            </g>
+
+            <!-- moving packets -->
+            <circle r="4" class="packet p1"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0s"><mpath href="#r-edge"/></animateMotion></circle>
+            <circle r="4" class="packet p2"><animateMotion dur="3.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#r-device"/></animateMotion></circle>
+            <circle r="4" class="packet p3"><animateMotion dur="3.6s" repeatCount="indefinite" begin="2.4s"><mpath href="#r-cloud"/></animateMotion></circle>
+          </svg>
+          <figcaption id="fig1-caption">
+            <strong>Figure 1.</strong> Interactive queries can't wait for cleaner electricity, so a carbon-aware
+            scheduler changes <em>where</em> and <em>how</em> a query runs (on which tier, with which model size
+            and quantisation) rather than <em>when</em>.
+          </figcaption>
+        </figure>
       </div>
+    </section>
 
-      <ol class="themes">
-        <li>
-          <span class="theme-no">01</span>
-          <h3>Edge AI</h3>
-          <p>Bringing foundation models to microcontrollers and single-board computers through quantization,
-            pruning, and hardware-software co-design, so they run in real time with no cloud.</p>
-        </li>
-        <li>
-          <span class="theme-no">02</span>
-          <h3>Sustainable inference</h3>
-          <p>Carbon-aware scheduling for LLM workloads that balances energy, latency, and output quality.</p>
-        </li>
-        <li>
-          <span class="theme-no">03</span>
-          <h3>Trustworthy autonomy</h3>
-          <p>Autonomous and embodied AI systems that stay robust, interpretable, and secure under real-world
-            constraints.</p>
-        </li>
-      </ol>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">About</h2>
+        <div class="about-grid">
+          <div class="prose">
+            <p>
+              I'm a Computer Science undergraduate at Shri Mata Vaishno Devi University in Jammu &amp; Kashmir,
+              India. I'm currently a Research &amp; Development Intern under the Erasmus+ programme at the
+              University of Ljubljana, working with Prof. Veljko Pejović on carbon-aware scheduling for large
+              language model inference. In January 2027, I'll join the Cognitive Interface Lab at Nanyang
+              Technological University, Singapore, as a Visiting Researcher, working on edge-native cognitive AI
+              for wearables.
+            </p>
+            <p>
+              I'm also interested in natural language processing for low-resource South Asian languages, wearable
+              biosensing, and AI policy for digital inclusion. Outside research, I'm an Ambassador for Thinking
+              About Thinking and a Global Youth Ambassador for Theirworld.
+            </p>
+          </div>
+
+          <aside class="side">
+            <h3 class="side-title">Interests</h3>
+            <ol class="interests">
+              <li><span>i.</span>Edge AI &amp; model compression</li>
+              <li><span>ii.</span>Sustainable, carbon-aware inference</li>
+              <li><span>iii.</span>Trustworthy &amp; embodied autonomy</li>
+              <li><span>iv.</span>Low-resource language NLP</li>
+            </ol>
+            <h3 class="side-title">Education</h3>
+            <div class="edu">
+              <p><strong>Shri Mata Vaishno Devi University</strong></p>
+              <p><em>Bachelor of Technology, Computer Science &amp; Engineering</em></p>
+              <p class="meta">2025 – 2029 · CGPA 8.36 / 10</p>
+            </div>
+            <div class="edu">
+              <p><strong>Nanyang Technological University</strong></p>
+              <p><em>Visiting Research Student (non-graduating), College of Computing and Data Science</em></p>
+              <p class="meta">2027 – 2028</p>
+            </div>
+          </aside>
+        </div>
+      </div>
     </section>
 
     <!-- NEWS -->
-    <section id="news">
-      <h2>News</h2>
-      <ul class="news">
-        <li><time>Oct 2026</time><p>Nominated <strong>Student Coordinator</strong> for the Office of Alumni &amp; International Affairs at SMVDU.</p></li>
-        <li><time>Oct 2026</time><p>Selected as a 2026 <strong>Ambassador</strong> for <a href="https://www.linkedin.com/company/thinking-about-thinking-inc/" target="_blank" rel="noopener">Thinking About Thinking</a>, a nonprofit community on AI, neuroscience, and intelligence that began in Princeton.</p></li>
-        <li><time>Sep 2026</time><p>Selected as a <strong>Global Youth Ambassador</strong> for Theirworld, advocating for education for children in displaced and conflict-affected communities.</p></li>
-        <li><time>Sep 2026</time><p>Launched <a href="https://pjk.co.in" target="_blank" rel="noopener">pjk.co.in</a> as Technical Director of PAT &amp; J.K. Co.</p></li>
-        <li><time>Sep 2026</time><p>Started <strong>aryaveer.mind</strong>, an explainer series breaking down AI research without the jargon.</p></li>
-        <li><time>Sep 2026</time><p>Began an <strong>Erasmus+ traineeship</strong> at the University of Ljubljana with Dr. Veljko Pejović.</p></li>
-        <li><time>Jul 2026</time><p>Invited to the <strong>Cognitive Interface Lab, NTU Singapore</strong>, for a research attachment from January 2027 to January 2028.</p></li>
-      </ul>
+    <section id="news" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">News</h2>
+        <ul class="news">
+          <li><time>Oct 2026</time><p>Nominated <strong>Student Coordinator</strong> for the Office of Alumni &amp; International Affairs at Shri Mata Vaishno Devi University.</p></li>
+          <li><time>Oct 2026</time><p>Selected as a 2026 <strong>Ambassador</strong> for Thinking About Thinking, a nonprofit community on AI, neuroscience, and the foundations of intelligence.</p></li>
+          <li><time>Sep 2026</time><p>Selected as a <strong>Global Youth Ambassador</strong> for Theirworld, advocating for education in displaced and conflict-affected communities.</p></li>
+          <li><time>Sep 2026</time><p>Launched <a href="https://pjk.co.in" target="_blank" rel="noopener">pjk.co.in</a> as Technical Director of PAT &amp; J.K. Co.</p></li>
+          <li><time>Sep 2026</time><p>Started <strong>aryaveer.mind</strong>, an explainer series on AI research without the jargon.</p></li>
+          <li><time>Sep 2026</time><p>Began an <strong>Erasmus+ traineeship</strong> at the University of Ljubljana with Prof. Veljko Pejović.</p></li>
+          <li><time>Jul 2026</time><p>Invited to the <strong>Cognitive Interface Lab</strong> at Nanyang Technological University for a research attachment from January 2027.</p></li>
+        </ul>
+      </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2>Research</h2>
-      <div class="entries">
-        <article class="entry">
-          <div class="when">Jan 2027 –<br> Jan 2028<span class="tag">incoming</span></div>
-          <div class="what">
-            <h3>Visiting Researcher, Cognitive Interface Lab</h3>
-            <p class="where">Nanyang Technological University, College of Computing &amp; Data Science · Singapore</p>
-            <p>A 12-month research attachment on edge-native cognitive AI: closed-loop wearable systems that
-              turn biosignals into low-latency feedback for human-computer interaction. The central problem is
-              model compression. That means taking architectures built for accelerator-scale compute and
-              finding what can be cut, quantized, or restructured to fit strict SRAM and power budgets
-              without losing the signal that matters.</p>
-          </div>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">Research Experience</h2>
+
+        <article class="cv-entry">
+          <div class="cv-row"><h3>Visiting Researcher <span class="chip">Incoming</span></h3><span class="cv-right">Singapore</span></div>
+          <div class="cv-row sub"><em>Cognitive Interface Lab, Nanyang Technological University</em><span class="cv-right">Jan 2027 – Jan 2028</span></div>
+          <ul>
+            <li>A 12-month attachment with the College of Computing and Data Science on edge-native cognitive AI:
+              closed-loop wearable systems that turn biosignals into low-latency feedback for human-computer
+              interaction.</li>
+            <li>The central problem is compression: taking architectures built for accelerator-scale compute and
+              finding what can be cut, quantised, or restructured to fit strict on-chip memory and power budgets
+              without losing the signal that matters.</li>
+          </ul>
         </article>
 
-        <article class="entry">
-          <div class="when">Sep 2026 –<br> Dec 2026<span class="tag tag-now">now</span></div>
-          <div class="what">
-            <h3>Research &amp; Development Intern (Erasmus+)</h3>
-            <p class="where">Faculty of Computer and Information Science, University of Ljubljana · Remote · with Dr. Veljko Pejović</p>
-            <p>Resource-aware mobile computing and sustainable edge AI. I'm building a carbon-aware scheduler
-              for LLM inference that decides whether to run locally or in the cloud, and in which region. The
-              cost model covers energy and latency across model size, quantization level, and input/output
-              length. The scheduler minimizes emissions while keeping time-to-first-token, time-per-token,
-              and answer quality at user-set minimums.</p>
-          </div>
+        <article class="cv-entry">
+          <div class="cv-row"><h3>Research &amp; Development Intern (Erasmus+) <span class="chip chip-live">Ongoing</span></h3><span class="cv-right">Ljubljana, Slovenia (remote)</span></div>
+          <div class="cv-row sub"><em>Faculty of Computer and Information Science, University of Ljubljana</em><span class="cv-right">Sep 2026 – Dec 2026</span></div>
+          <ul>
+            <li>With Prof. Veljko Pejović on resource-aware mobile computing and sustainable edge AI.</li>
+            <li>Building a carbon-aware scheduler that places large language model queries across a device, edge,
+              and cloud continuum. See <a href="#carbon">the project below</a>.</li>
+          </ul>
         </article>
 
-        <article class="entry">
-          <div class="when">May 2026 –<br> Jul 2026</div>
-          <div class="what">
-            <h3>Research Intern</h3>
-            <p class="where">Shri Mata Vaishno Devi University · Katra</p>
-            <p>Behaviour-based detection of malicious USB charging sessions; see
-              <a href="#usb">the project below</a>.</p>
-          </div>
+        <article class="cv-entry">
+          <div class="cv-row"><h3>Research Intern</h3><span class="cv-right">Katra, Jammu &amp; Kashmir</span></div>
+          <div class="cv-row sub"><em>Shri Mata Vaishno Devi University</em><span class="cv-right">May 2026 – Jul 2026</span></div>
+          <ul>
+            <li>Behaviour-based detection of malicious USB charging sessions. See <a href="#usb">the project below</a>.</li>
+          </ul>
         </article>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Selected projects</h2>
-      <div class="entries">
-        <article class="entry" id="usb">
-          <div class="when">2026</div>
-          <div class="what">
+    <section id="projects" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">Projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="sustainable">Sustainable computing</button>
+          <button type="button" class="filter" data-filter="edge">Edge AI</button>
+          <button type="button" class="filter" data-filter="security">Security</button>
+          <button type="button" class="filter" data-filter="perception">Perception</button>
+        </div>
+
+        <div class="projects">
+          <article class="project featured" id="carbon" data-tags="sustainable edge">
+            <div class="project-head">
+              <p class="project-cat">Sustainable computing <span class="chip chip-live">Ongoing</span></p>
+              <h3>Carbon-Aware Scheduling for Large Language Model Inference</h3>
+              <p class="project-meta"><em>University of Ljubljana, with Prof. Veljko Pejović</em> · 2026 – present</p>
+              <table class="tiers">
+                <caption>Hardware tiers</caption>
+                <tbody>
+                  <tr><th scope="row">Device</th><td>Apple M4 laptop</td><td class="state done">measured</td></tr>
+                  <tr><th scope="row">Edge</th><td>RTX 3070 desktop</td><td class="state">next</td></tr>
+                  <tr><th scope="row">Data centre</th><td>NVIDIA A100</td><td class="state">next</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="project-body">
+              <p>
+                Interactive queries can't be postponed until the grid is cleaner. So instead of shifting
+                <em>when</em> a query runs, this scheduler shifts <em>where</em> it runs (on the user's device, an
+                edge server, or a data centre) and <em>how</em> (model size and quantisation). It reduces emissions
+                while keeping time-to-first-token, time per output token, and answer quality within set limits.
+                The work rests on a measurement harness that profiles Qwen2.5 models served with llama.cpp on
+                each hardware tier.
+              </p>
+              <div class="findings">
+                <p class="findings-title">Early findings from the device tier (Apple M4 laptop)</p>
+                <ul>
+                  <li><span class="num">≈10×</span>Generating a token costs about ten times more energy than reading one.</li>
+                  <li><span class="num">−53%</span>Batching 16 requests cuts energy per query, but waiting time to the first token rises twelvefold.</li>
+                  <li><span class="num">≈4×</span>From Slovenia, choosing where a query runs within a 30 ms latency budget saves about four times more carbon than delaying it by 24 hours.</li>
+                  <li><span class="num">0.3%</span>Energy per query reproduces across three days to within 0.3% variation.</li>
+                </ul>
+              </div>
+              <p class="project-next">Next: edge (RTX 3070) and data-centre (A100) measurements, the cost model, and the scheduler itself.</p>
+              <p class="stack">Python · llama.cpp · powermetrics · ENTSO-E carbon data · statistics</p>
+            </div>
+          </article>
+
+          <article class="project" id="usb" data-tags="security">
+            <p class="project-cat">Security</p>
             <h3>Behaviour-Based Detection of USB Charging Threats</h3>
-            <p>A detection pipeline and telemetry simulator for juice jacking, HID input injection,
-              class-swapping devices, and concealed hardware. The simulator generates 60,000 sessions with
-              82 features across 14 attack and benign families. The detector is tested under deliberately
-              hard conditions: unseen devices and chargers, held-out attack families, benign look-alikes, and
-              a realistic 0.1% attack rate. On hardware the model never saw, recall at a 1% false-positive
-              budget is 80% (with high variance across seeds). Accuracy on familiar hardware is 98%, against
-              77% for a rule baseline. The scorer exports to 27 KB of dependency-free C at about 1 µs p99
-              latency. Results are on synthetic data, and the project includes an audit that retracted an
-              earlier version's inflated numbers.</p>
-            <p class="stack">Gradient boosting · SHAP · ONNX · C export · adversarial evaluation</p>
-          </div>
-        </article>
+            <p class="project-meta"><em>Shri Mata Vaishno Devi University</em> · 2026</p>
+            <p>A detection pipeline and telemetry simulator for juice jacking, keystroke injection,
+              class-swapping devices, and concealed hardware, built on 60,000 simulated sessions. On chargers and
+              devices it never saw, the detector reaches 80% recall at a 1% false-positive budget, with high
+              variance across seeds. It scores 98% on familiar hardware, against 77% for a rule baseline. The
+              scorer exports to 27 KB of dependency-free C. All results are on synthetic data, and the project
+              audits and retracts an earlier version's inflated numbers.</p>
+            <p class="stack">Gradient boosting · SHAP · ONNX · C export</p>
+          </article>
 
-        <article class="entry">
-          <div class="when">2025 –<br> present</div>
-          <div class="what">
+          <article class="project" data-tags="edge">
+            <p class="project-cat">Edge AI</p>
             <h3>Nida-e-Watan: Offline Edge Inference Cluster</h3>
-            <p>An offline-first AI system across 12 Raspberry Pi 4 nodes serving villages with about two
-              hours of connectivity a day. Quantizing and pruning multilingual BERT and IndicBERT cut the
-              model from 1.1 GB to 260 MB while keeping 91% task accuracy. Classification runs in 380 ms on
-              device, and CRDT-based sync keeps 99.2% data integrity between uplink windows.</p>
-            <p class="stack">Raspberry Pi · ONNX Runtime · quantization · pruning · CRDTs</p>
-          </div>
-        </article>
+            <p class="project-meta">2025 – present</p>
+            <p>An offline-first AI system across 12 Raspberry Pi 4 nodes, serving villages with about two hours of
+              connectivity a day. Quantising and pruning multilingual BERT and IndicBERT shrank the model from
+              1.1 GB to 260 MB while keeping 91% task accuracy. On-device classification takes 380 ms, and
+              conflict-free replicated data types keep 99.2% data integrity between uplinks.</p>
+            <p class="stack">Raspberry Pi · ONNX Runtime · quantisation · pruning</p>
+          </article>
 
-        <article class="entry">
-          <div class="when">2026</div>
-          <div class="what">
-            <h3>Multispectral Terrain Classification &amp; Multi-Agent Routing</h3>
-            <p>A spectral ablation study in which a ResNet-18 on five bands (RGB + NIR + SWIR1) beat RGB alone,
-              97.76% vs 97.06%. Multi-seed cross-validation tested whether the gain was real, and Grad-CAM
-              showed what the extra bands changed. The classified terrain then fed a multi-objective A*
-              router. There, a heavy convoy, light recon, and stealth infantry agent re-plan around soil
-              moisture, viewshed, and a simulated rainfall event.</p>
-            <p class="stack">PyTorch · ResNet-18 · Grad-CAM · A* search</p>
-          </div>
-        </article>
-
-        <article class="entry">
-          <div class="when">2026</div>
-          <div class="what">
+          <article class="project" data-tags="edge">
+            <p class="project-cat">Edge AI · Wearables</p>
             <h3>Eco-Smart Wearable Biosensing Patch</h3>
-            <p>A cloud-free biosensing patch on an Arduino Nano, with electrochemical electrodes and temperature
-              sensors. A time-series classifier runs on the microcontroller itself, within its SRAM and flash
+            <p class="project-meta">2026</p>
+            <p>A cloud-free biosensing patch built on an Arduino Nano with electrochemical electrodes and
+              temperature sensors. A time-series classifier runs on the microcontroller itself, within its memory
               limits, to flag physiological anomalies in real time.</p>
-            <p class="stack">Arduino Nano · PyTorch · TinyML · biosignals</p>
-          </div>
-        </article>
+            <p class="stack">Arduino Nano · PyTorch · TinyML</p>
+          </article>
+
+          <article class="project" data-tags="perception">
+            <p class="project-cat">Perception</p>
+            <h3>Multispectral Terrain Classification &amp; Multi-Agent Routing</h3>
+            <p class="project-meta">2026</p>
+            <p>A ResNet-18 using five spectral bands beat one using only colour (97.76% vs 97.06%), checked across
+              random seeds and explained with Grad-CAM. The classified terrain then fed an A* router, where convoy,
+              recon, and stealth agents re-plan around soil moisture, visibility, and a simulated rainfall
+              event.</p>
+            <p class="stack">PyTorch · Grad-CAM · A* search</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- WRITING -->
-    <section id="writing">
-      <h2>Writing</h2>
-      <div class="entries">
-        <article class="entry">
-          <div class="when">2024 –<br> 2025</div>
-          <div class="what">
-            <h3><a href="https://www.researchgate.net/publication/408315648_Nida-e-Bazgasht-e-Watan_The_Call_to_Return_to_The_Motherland" target="_blank" rel="noopener"><em>Nida-e-Bazgasht-e-Watan</em> (The Call to Return to the Motherland)</a></h3>
-            <p>A 40-page monograph on internal displacement, economic stagnation, and technological exclusion
-              in the Pir Panjal and Chenab Valley regions of Jammu &amp; Kashmir. It focuses on how the 1990s
-              migrations still affect the region's displaced youth, and on what technology and AI governance
-              could do about it.</p>
-          </div>
+    <section id="writing" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">Writing &amp; Outreach</h2>
+        <article class="cv-entry">
+          <div class="cv-row"><h3><a href="https://www.researchgate.net/publication/408315648_Nida-e-Bazgasht-e-Watan_The_Call_to_Return_to_The_Motherland" target="_blank" rel="noopener"><em>Nida-e-Bazgasht-e-Watan</em> (The Call to Return to the Motherland)</a></h3><span class="cv-right">2024 – 2025</span></div>
+          <p>A 40-page monograph on internal displacement, economic stagnation, and technological exclusion in the
+            Pir Panjal and Chenab Valley regions of Jammu &amp; Kashmir. It examines how the 1990s migrations still
+            shape the lives of the region's displaced youth, and what technology and AI governance could do.</p>
         </article>
-        <article class="entry">
-          <div class="when">2026 –<br> present</div>
-          <div class="what">
-            <h3>aryaveer.mind</h3>
-            <p>An AI explainer series on Instagram. Each post is a fact-checked, jargon-free carousel on a
-              piece of AI research or news, from <em>Attention Is All You Need</em> to Google's plan to put
-              AI chips in orbit.</p>
-          </div>
+        <article class="cv-entry">
+          <div class="cv-row"><h3>aryaveer.mind</h3><span class="cv-right">2026 – present</span></div>
+          <p>An AI explainer series on Instagram. Each post is a fact-checked, jargon-free carousel on a piece of
+            AI research or news, from <em>Attention Is All You Need</em> to Google's plan to put AI chips in
+            orbit.</p>
         </article>
-        <article class="entry">
-          <div class="when">Ongoing</div>
-          <div class="what">
-            <h3>Essays</h3>
-            <p>10+ essays on Medium on AI policy, digital inclusion, NLP for low-resource languages, and edge
-              computing for social good, plus notes on LinkedIn, such as whether compression costs
-              low-resource languages more than English.</p>
-          </div>
+        <article class="cv-entry">
+          <div class="cv-row"><h3>Essays</h3><span class="cv-right">Medium · LinkedIn</span></div>
+          <p>10+ essays on AI policy, digital inclusion, natural language processing for low-resource languages,
+            and edge computing for social good. A recent one asks whether model compression costs low-resource
+            languages more than English.</p>
         </article>
       </div>
     </section>
 
     <!-- SERVICE -->
-    <section id="service">
-      <h2>Service &amp; leadership</h2>
-      <ul class="rows">
-        <li><span class="row-when">2026 –</span><span><strong>Technical Director &amp; Head of Quality Assurance</strong>, <a href="https://pjk.co.in" target="_blank" rel="noopener">PAT &amp; J.K. Co.</a>: built the group's web platform, starting with Phulhaar Gallery</span></li>
-        <li><span class="row-when">2026 –</span><span><strong>Student Coordinator</strong>, Office of Alumni &amp; International Affairs, SMVDU</span></li>
-        <li><span class="row-when">2026 –</span><span><strong>Ambassador</strong>, Thinking About Thinking (ThAT)</span></li>
-        <li><span class="row-when">2026 –</span><span><strong>Global Youth Ambassador</strong>, Theirworld</span></li>
-        <li><span class="row-when">2026 –</span><span><strong>Citizen Scientist</strong>, Open Science Data Repository (OSDR) AI/ML Analysis Working Group</span></li>
-        <li><span class="row-when">2025 –</span><span><strong>Founder</strong>, Project Nida-e-Watan: digital literacy and welfare access for displaced families in the Chenab Valley, with outreach in Hindi, Urdu, and Dogri</span></li>
-      </ul>
-    </section>
-
-    <!-- HONORS / EDUCATION / SKILLS -->
-    <section id="more" class="columns">
-      <div>
-        <h2>Education</h2>
-        <ul class="plain">
-          <li><strong>B.Tech, Computer Science &amp; Engineering</strong><br><span class="muted">Shri Mata Vaishno Devi University · 2025–2029 · CGPA 8.36/10</span></li>
-          <li><strong>Visiting Research Student (non-graduating)</strong><br><span class="muted">NTU Singapore, CCDS · 2027–2028</span></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Honors</h2>
-        <ul class="plain">
-          <li><strong>TryHackMe Top 1% globally</strong><br><span class="muted">Top 500 worldwide, top 50 in India</span></li>
-          <li>Machine Learning Specialization, <span class="muted">Stanford Online</span></li>
-          <li>Deep Learning Specialization, <span class="muted">DeepLearning.AI</span></li>
-          <li>Mathematics for ML, <span class="muted">DeepLearning.AI</span></li>
-          <li>AI, Justice &amp; the Rule of Law, <span class="muted">Oxford</span></li>
+    <section id="service" class="section">
+      <div class="wrap">
+        <h2 class="sc-heading">Service &amp; Leadership</h2>
+        <ul class="service">
+          <li><div class="cv-row"><strong>Technical Director &amp; Head of Quality Assurance</strong><span class="cv-right">2026 – present</span></div><em><a href="https://pjk.co.in" target="_blank" rel="noopener">PAT &amp; J.K. Co.</a>: built the group's web platform, starting with Phulhaar Gallery</em></li>
+          <li><div class="cv-row"><strong>Student Coordinator</strong><span class="cv-right">2026 – present</span></div><em>Office of Alumni &amp; International Affairs, Shri Mata Vaishno Devi University</em></li>
+          <li><div class="cv-row"><strong>Ambassador</strong><span class="cv-right">2026 – present</span></div><em>Thinking About Thinking</em></li>
+          <li><div class="cv-row"><strong>Global Youth Ambassador</strong><span class="cv-right">2026 – present</span></div><em>Theirworld</em></li>
+          <li><div class="cv-row"><strong>Citizen Scientist</strong><span class="cv-right">2026 – present</span></div><em>AI/ML Analysis Working Group, Open Science Data Repository</em></li>
+          <li><div class="cv-row"><strong>Founder</strong><span class="cv-right">2025 – present</span></div><em>Project Nida-e-Watan: digital literacy and welfare access for displaced families in the Chenab Valley, in Hindi, Urdu, and Dogri</em></li>
         </ul>
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Toolbox</h2>
-      <dl class="toolbox">
-        <dt>Languages</dt><dd>Python, C++, JavaScript, SQL, Bash</dd>
-        <dt>ML</dt><dd>PyTorch, TensorFlow, Hugging Face, scikit-learn, spaCy</dd>
-        <dt>Edge</dt><dd>TensorFlow Lite, ONNX Runtime, quantization, distillation, Raspberry Pi, Arduino</dd>
-        <dt>Systems</dt><dd>Linux, Docker, Git, FastAPI, PostgreSQL</dd>
-        <dt>Spoken</dt><dd>English, Hindi, Dogri, Urdu, Punjabi</dd>
-      </dl>
+    <!-- HONORS & SKILLS -->
+    <section id="honors" class="section">
+      <div class="wrap two-col">
+        <div>
+          <h2 class="sc-heading">Honours</h2>
+          <ul class="plain">
+            <li><strong>TryHackMe, top 1% globally</strong> <span class="meta">(top 500 worldwide, top 50 in India)</span></li>
+            <li>Machine Learning Specialization <span class="meta">· Stanford Online</span></li>
+            <li>Deep Learning Specialization <span class="meta">· DeepLearning.AI</span></li>
+            <li>Mathematics for Machine Learning <span class="meta">· DeepLearning.AI</span></li>
+            <li>AI, Justice, and the Rule of Law <span class="meta">· University of Oxford</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="sc-heading">Technical Skills</h2>
+          <dl class="skills">
+            <dt>Languages</dt><dd>Python, C++, JavaScript, SQL, Bash</dd>
+            <dt>Machine learning</dt><dd>PyTorch, TensorFlow, Hugging Face, scikit-learn</dd>
+            <dt>Edge</dt><dd>llama.cpp, ONNX Runtime, TensorFlow Lite, quantisation, Raspberry Pi, Arduino</dd>
+            <dt>Systems</dt><dd>Linux, Docker, Git, FastAPI, PostgreSQL</dd>
+            <dt>Spoken</dt><dd>English, Hindi, Dogri, Urdu, Punjabi</dd>
+          </dl>
+        </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>I'm always glad to talk about edge AI, compression, low-resource NLP, or anything above.
-        The best way to reach me is <a href="mailto:aryavsparihar@gmail.com">aryavsparihar@gmail.com</a>.</p>
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2 class="sc-heading">Contact</h2>
+        <p class="contact-text">I'm always glad to talk about edge AI, compression, carbon-aware computing, or
+          low-resource language technology. Write to me at
+          <a href="mailto:aryavsparihar@gmail.com">aryavsparihar@gmail.com</a>.</p>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year">2026</span> Aryaveer Singh Parihar · Doda, Jammu &amp; Kashmir</p>
+    <div class="wrap"><p>© <span id="year">2026</span> Aryaveer Singh Parihar</p></div>
   </footer>
 
   <script src="script.js"></script>

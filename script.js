@@ -1,6 +1,5 @@
 (function () {
   var root = document.documentElement;
-  var header = document.querySelector('.header');
 
   // Theme toggle: follows the system until the visitor picks one.
   document.querySelector('.theme-toggle').addEventListener('click', function () {
@@ -11,12 +10,19 @@
     try { localStorage.setItem('theme', next); } catch (e) {}
   });
 
-  // Show the name in the header once the big heading has scrolled away.
-  function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 120);
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  // Project filters.
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+  var projects = document.querySelectorAll('.project');
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.dataset.filter;
+      filters.forEach(function (b) { b.classList.toggle('active', b === btn); });
+      projects.forEach(function (p) {
+        var tags = (p.dataset.tags || '').split(' ');
+        p.classList.toggle('hidden', f !== 'all' && tags.indexOf(f) === -1);
+      });
+    });
+  });
 
   // Highlight the nav link for the section in view.
   var nav = document.querySelector('.nav');
