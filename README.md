@@ -5,8 +5,8 @@ Personal academic site for Aryaveer Singh Parihar, live at **https://aryavsparih
 The custom domain is set by the `CNAME` file and four GitHub A records at GoDaddy (185.199.108–111.153). Don't delete `CNAME`, or the site falls back to aryavsparihar.github.io.
 
 - `index.html` holds all content (edit the sections there)
-- `style.css` holds the styling (light by default, with a dark-mode toggle in the navbar)
-- `script.js` handles the dark-mode toggle, the mobile menu, and the active-section nav highlight
+- `style.css` holds the styling (notebook theme: graph paper, highlighter, typewriter labels)
+- `script.js` handles project filters, Figure 1, the photo easter egg, and the active-section nav highlight
 
 ## Preview locally
 

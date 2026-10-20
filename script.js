@@ -1,15 +1,6 @@
 (function () {
   var root = document.documentElement;
 
-  // Theme toggle: follows the system until the visitor picks one.
-  document.querySelector('.theme-toggle').addEventListener('click', function () {
-    var current = root.dataset.theme ||
-      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    var next = current === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch (e) {}
-  });
-
   // Project filters.
   var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
   var projects = document.querySelectorAll('.project');
